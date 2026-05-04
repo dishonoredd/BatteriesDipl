@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(250, 252, 255);
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.bg-mainpage {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/accum.jpg");
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 72px);
+  background-attachment: fixed;
+}
+
+.burger-menu {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  z-index: 10;
+}
+
+.burger-line,
+.burger-line::before,
+.burger-line::after {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: #222;
+  transition: all 0.2s ease;
+}
+
+.burger-line {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #222;
+}
+
+.burger-line::before,
+.burger-line::after {
+  content: "";
+  left: 0;
+}
+
+.burger-line::before {
+  top: -10px;
+}
+
+.burger-line::after {
+  top: 10px;
+}
+
+.burger-menu:hover .burger-line,
+.burger-menu:hover .burger-line::before,
+.burger-menu:hover .burger-line::after {
+  background-color: #000000;
+}
