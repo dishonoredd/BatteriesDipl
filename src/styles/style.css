@@ -31,8 +31,12 @@ input:focus {
   background-position: center;
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 72px);
+  height: calc(100vh - 76px);
   background-attachment: fixed;
+}
+
+.h-skeleton-battyry {
+  height: calc(100vh - 76px);
 }
 
 .burger-menu {

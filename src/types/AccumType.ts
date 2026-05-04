@@ -1,5 +1,5 @@
 export type AccumType = {
-  id: number;
+  id: string;
   name: string;
   img: string;
   price: number;
