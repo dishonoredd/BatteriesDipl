@@ -2,14 +2,14 @@ import { AccumType } from "../types/AccumType";
 
 export const accumlist: AccumType[] = [
   {
-    id: 1,
+    id: "1",
     name: "Аккамулятор такое то такой то",
     img: "/371_original.webp",
     price: 20000,
     adds: "Какая то маленькая доп информация",
   },
   {
-    id: 2,
+    id: "2",
     name: "Аккамулятор такое то такой то",
     img: "/371_original.webp",
 
@@ -17,7 +17,7 @@ export const accumlist: AccumType[] = [
     adds: "Какая то мция",
   },
   {
-    id: 3,
+    id: "3",
     name: "Аккамулятор такое то такой то",
     img: "/371_original.webp",
 
@@ -25,7 +25,7 @@ export const accumlist: AccumType[] = [
     adds: "Какая то маленькая доп информация",
   },
   {
-    id: 4,
+    id: "4",
     name: "Аккамулятор такое то такой то",
     img: "/371_original.webp",
 
@@ -33,7 +33,7 @@ export const accumlist: AccumType[] = [
     adds: "Какая то маленькая доп информация",
   },
   {
-    id: 5,
+    id: "5",
     name: "Аккамулятор такое то такой то",
     img: "/371_original.webp",
 
@@ -41,7 +41,7 @@ export const accumlist: AccumType[] = [
     adds: "Какая то маленькая доп информация",
   },
   {
-    id: 6,
+    id: "6",
     name: "Аккамулятор такое то такой то",
     img: "/6660968512.jpg",
 
@@ -49,7 +49,7 @@ export const accumlist: AccumType[] = [
     adds: "Какая то маленькая доп информация",
   },
   {
-    id: 7,
+    id: "7",
     name: "Аккамулятор такое то такой то",
     img: "/6660968512.jpg",
 
@@ -57,7 +57,7 @@ export const accumlist: AccumType[] = [
     adds: "Какая то маленькая доп информация",
   },
   {
-    id: 8,
+    id: "8",
     name: "Аккамулятор такое то такой то",
     img: "/6660968512.jpg",
 

@@ -4,4 +4,5 @@ export type AccumType = {
   img: string;
   price: number;
   adds: string;
+  amount?: number;
 };

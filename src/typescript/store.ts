@@ -1,5 +1,6 @@
 import { AccumType } from "@/types/AccumType";
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { act } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 type RootState = ReturnType<typeof store.getState>;
@@ -47,11 +48,37 @@ const cartSlice = createSlice({
   initialState: initialCartState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<AccumType>) => {
-      state.cartArr.push(action.payload);
+      const MAX_AMOUNT = 10;
+
+      const existing = state.cartArr.find(
+        (item) => item.id === action.payload.id,
+      );
+
+      if (existing) {
+        if (existing.amount && existing.amount < MAX_AMOUNT) {
+          existing.amount += 1;
+        } else return;
+      } else {
+        state.cartArr.push({ ...action.payload, amount: 1 });
+      }
     },
+
     deleteItemFromCart: (state, action: PayloadAction<string>) => {
+      const existing = state.cartArr.find((item) => item.id === action.payload);
+
+      if (existing && existing.amount) {
+        if (existing.amount > 1) {
+          existing.amount -= 1;
+        } else {
+          state.cartArr = state.cartArr.filter(
+            (item) => item.id !== action.payload,
+          );
+        }
+      }
+    },
+    deleteItemFromCartFinally: (state, action: PayloadAction<string>) => {
       state.cartArr = state.cartArr.filter(
-        (battery) => battery.id !== action.payload,
+        (item) => item.id !== action.payload,
       );
     },
   },
@@ -89,7 +116,8 @@ export const store = configureStore({
 
 export const { toggleFavorite, removeFromFavorites } = favoritesSlice.actions;
 export const { switchOpen } = burgerSlice.actions;
-export const { addItemToCart, deleteItemFromCart } = cartSlice.actions;
+export const { addItemToCart, deleteItemFromCart, deleteItemFromCartFinally } =
+  cartSlice.actions;
 
 export const selectIsFavorite = (state: RootState, productId: string) =>
   state.favoritesSlice.favorites.some((item) => item.id === productId);

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import HeaderBurgerBtn from "../ui/HeaderBurgerBtn";
+import HeaderBurgerBtn from "../ui/header/HeaderBurgerBtn";
 
 export default function Header() {
   return (

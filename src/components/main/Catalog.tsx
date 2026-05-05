@@ -1,6 +1,6 @@
 import { accumlist } from "../../db/accumslist";
 import Image from "next/image";
-import CatalogActiveBtns from "../additional/CatalogActiveBtns";
+import CatalogActiveBtns from "../ui/catalog/CatalogActiveBtns";
 import Link from "next/link";
 
 export default function Catalog() {
