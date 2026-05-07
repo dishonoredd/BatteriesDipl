@@ -6,8 +6,9 @@ export default function App() {
   return (
     <>
       <Mainpage />
-      <Catalog />
       <Advantages />
+
+      <Catalog />
     </>
   );
 }

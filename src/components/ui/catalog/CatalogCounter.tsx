@@ -29,17 +29,19 @@ export default function CatalogCounter(props: CounterProps) {
   }
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between items-center">
       <button
         onClick={() => deleteOne(props.acc.id)}
-        className="border rounded-lg"
+        className="min-w-12 font-bold border-2 border-[#333] rounded-lg bg-[#333] text-white p-2
+        duration-150 hover:bg-white hover:text-[#222] hover:border-[#222]"
       >
         -
       </button>
-      <p>{props.amount}</p>
+      <p className="text-xl text-[#222]">{props.amount}</p>
       <button
         onClick={() => addAccToCart(props.acc)}
-        className="border rounded-lg"
+        className="min-w-12 font-bold border-2 border-[#333] rounded-lg bg-[#333] text-white p-2
+        duration-150 hover:bg-white hover:text-[#222] hover:border-[#222]"
       >
         +
       </button>

@@ -12,7 +12,7 @@ const listItems: string[] = [
 
 export default function Advantages() {
   return (
-    <div className="bg-[#222] pb-24 mt-48">
+    <div className="bg-[#222] pb-48">
       <p className="text-4xl text-center text-white p-24">Наши преимущества</p>
 
       <div className=" mx-auto w-400 shadow-md bg-[#171717] p-20 flex rounded-2xl ">
