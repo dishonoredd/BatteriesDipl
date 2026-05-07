@@ -19,7 +19,7 @@ type initialCartStateType = {
 };
 
 type initialFavoriteStateType = {
-  favorites: CartItem[];
+  favorites: AccumType[];
 };
 
 const initialBurgerState: initialBurgerStateType = {

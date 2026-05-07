@@ -7,7 +7,6 @@ import {
   useAppSelector,
 } from "@/typescript/store";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { useMemo } from "react";
 
 export default function Cart() {
@@ -33,7 +32,7 @@ export default function Cart() {
       <p>Общая сумма корзины: {totalPrice}</p>
       {cartArr.map((item) => (
         <li key={item.id}>
-          <Image src={item.img} alt={""} width={200} height={200} />
+          <Image src={item.img} alt={"img"} width={200} height={200} />
           <p>{item.name}</p>
           <p>{item.price}</p>
           <p>{item.adds}</p>

@@ -5,7 +5,7 @@ export default function Advantages() {
     <div className="my-30 mx-auto w-400 shadow-md bg-white p-20 flex rounded-2xl ">
       <Image
         src={"/akb.jpg"}
-        alt={""}
+        alt={"img"}
         width={5000}
         height={550}
         className="grow w-1/2"
