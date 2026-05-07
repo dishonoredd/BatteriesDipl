@@ -1,4 +1,5 @@
 import { AccumType } from "@/types/AccumType";
+import { CartItem } from "@/types/CartItemType";
 import {
   addItemToCart,
   deleteItemFromCart,
@@ -7,7 +8,7 @@ import {
 
 type CounterProps = {
   amount: number;
-  acc: AccumType;
+  acc: CartItem;
 };
 
 const MAX_ITEMS = 10;
@@ -19,7 +20,7 @@ export default function CatalogCounter(props: CounterProps) {
     dispatch(deleteItemFromCart(id));
   }
 
-  function addAccToCart(acc: AccumType) {
+  function addAccToCart(acc: CartItem) {
     if (props.amount < MAX_ITEMS) {
       dispatch(addItemToCart(acc));
     } else {

@@ -1,6 +1,7 @@
 "use client";
 
 import { AccumType } from "@/types/AccumType";
+import { CartItem } from "@/types/CartItemType";
 import {
   addItemToCart,
   removeFromFavorites,
@@ -16,7 +17,7 @@ export default function Favorites() {
   const dispatch = useAppDispatch();
 
   function addToCart(acc: AccumType) {
-    dispatch(addItemToCart(acc));
+    dispatch(addItemToCart({ ...acc, amount: 0 }));
   }
 
   function removeFromFav(id: string) {

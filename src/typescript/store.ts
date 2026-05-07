@@ -1,6 +1,7 @@
 import { AccumType } from "@/types/AccumType";
+import { CartItem } from "@/types/CartItemType";
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { act } from "react";
+
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 type RootState = ReturnType<typeof store.getState>;
@@ -14,11 +15,11 @@ type initialBurgerStateType = {
 };
 
 type initialCartStateType = {
-  cartArr: AccumType[];
+  cartArr: CartItem[];
 };
 
 type initialFavoriteStateType = {
-  favorites: AccumType[];
+  favorites: CartItem[];
 };
 
 const initialBurgerState: initialBurgerStateType = {
@@ -47,7 +48,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
-    addItemToCart: (state, action: PayloadAction<AccumType>) => {
+    addItemToCart: (state, action: PayloadAction<CartItem>) => {
       const MAX_AMOUNT = 10;
 
       const existing = state.cartArr.find(

@@ -20,9 +20,9 @@ export default function Catalog() {
                 width={230}
                 height={600}
                 className="w-full h-50 rounded-t-lg"
-              />{" "}
+              />
             </Link>
-            <CatalogActiveBtns accum={accum} />
+            <CatalogActiveBtns accum={{ ...accum, amount: 0 }} />
           </li>
         ))}
       </ul>

@@ -9,9 +9,10 @@ import {
 } from "@/typescript/store";
 import CatalogProductBtn from "./CatalogProductBtn";
 import CatalogCounter from "./CatalogCounter";
+import { CartItem } from "@/types/CartItemType";
 
 type CatalogActiveBtnsProps = {
-  accum: AccumType;
+  accum: CartItem;
 };
 
 export default function CatalogActiveBtns(props: CatalogActiveBtnsProps) {

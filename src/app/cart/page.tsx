@@ -1,11 +1,13 @@
 "use client";
 
+import CatalogCounter from "@/components/ui/catalog/CatalogCounter";
 import {
   deleteItemFromCartFinally,
   useAppDispatch,
   useAppSelector,
 } from "@/typescript/store";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 import { useMemo } from "react";
 
 export default function Cart() {
@@ -24,6 +26,8 @@ export default function Cart() {
     }, 0);
   }, [cartArr]);
 
+  console.log("render");
+
   return (
     <ul>
       <p>Общая сумма корзины: {totalPrice}</p>
@@ -34,6 +38,7 @@ export default function Cart() {
           <p>{item.price}</p>
           <p>{item.adds}</p>
           <p>количество тавара {item.amount}</p>
+          <CatalogCounter amount={item.amount} acc={item} />
           <button onClick={() => deleteFromCart(item.id)}>
             удалить ез горзенге
           </button>

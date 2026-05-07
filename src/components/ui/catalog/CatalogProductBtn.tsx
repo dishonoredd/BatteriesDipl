@@ -1,16 +1,16 @@
 "use client";
 
-import { AccumType } from "@/types/AccumType";
+import { CartItem } from "@/types/CartItemType";
 import { addItemToCart, useAppDispatch } from "@/typescript/store";
 
 type CatalogBtnProps = {
-  acc: AccumType;
+  acc: CartItem;
 };
 
 export default function CatalogProductBtn(props: CatalogBtnProps) {
   const dispatch = useAppDispatch();
 
-  function addAccToCart(accum: AccumType) {
+  function addAccToCart(accum: CartItem) {
     dispatch(addItemToCart(accum));
   }
 
