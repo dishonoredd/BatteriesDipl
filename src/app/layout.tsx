@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google";
 import "../styles/style.css";
 import { ReduxProvider } from "@/components/additional/CustomReduxProvider";
 import Header from "@/components/main/Header";
-import BurgerMenue from "@/components/additional/BurgerMenue";
+import BurgerMenue from "@/components/main/BurgerMenue";
 
 const montserrat = Montserrat({
   variable: "--font-geist-sans",

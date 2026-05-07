@@ -1,13 +1,13 @@
 import { accumlist } from "../../db/accumslist";
 import Image from "next/image";
-import CatalogActiveBtns from "../ui/catalog/CatalogActiveBtns";
 import Link from "next/link";
+import CatalogActiveBtns from "../ui/catalog/CatalogActiveBtns";
 
 export default function Catalog() {
   return (
     <>
       <h2 className="text-center p-24 text-4xl ">Каталог аккумуляторов</h2>
-      <ul className="w-400 mx-auto grid grid-cols-5 gap-12">
+      <ul className=" w-400 mx-auto grid grid-cols-5 gap-12">
         {accumlist.map((accum) => (
           <li
             key={accum.id}

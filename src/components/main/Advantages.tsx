@@ -1,27 +1,36 @@
 import Image from "next/image";
 
+const listItems: string[] = [
+  "Аккумуляторы на любые авто",
+  "Обмен строго на новый",
+  "Скидка на сдачу старого аккумулятора до 4000 рублей",
+  "Цены ниже рыночных",
+  "Бесплатная установка",
+  "Бесплатное обслуживание",
+  "Гарантия до 5 лет",
+];
+
 export default function Advantages() {
   return (
-    <div className="my-30 mx-auto w-400 shadow-md bg-white p-20 flex rounded-2xl ">
-      <Image
-        src={"/akb.jpg"}
-        alt={"img"}
-        width={5000}
-        height={550}
-        className="grow w-1/2"
-      />
-      <ul className="grow w-1/2 flex flex-col justify-between pl-16">
-        <li className="text-4xl">Наши преимущества</li>
-        <li className="text-xl">Аккумуляторы на любые авто</li>
-        <li className="text-xl">Обмен строго на новый</li>
-        <li className="text-xl">
-          Скидка на сдачу старого аккумулятора до 4000 рублей
-        </li>
-        <li className="text-xl">Цены ниже рыночных</li>
-        <li className="text-xl">Бесплатная установка</li>
-        <li className="text-xl">Бесплатное обслуживание</li>
-        <li className="text-xl">Гарантия до 5 лет</li>
-      </ul>
+    <div className="bg-[#222] pb-24 mt-48">
+      <p className="text-4xl text-center text-white p-24">Наши преимущества</p>
+
+      <div className=" mx-auto w-400 shadow-md bg-[#171717] p-20 flex rounded-2xl ">
+        <Image
+          src={"/akb.jpg"}
+          alt={"img"}
+          width={500}
+          height={550}
+          className="grow w-1/2 rounded-lg brightness-80"
+        />
+        <ul className="grow w-1/2 flex flex-col justify-between pl-16">
+          {listItems.map((li) => (
+            <li key={li} className="text-xl text-gray-300">
+              {li}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
