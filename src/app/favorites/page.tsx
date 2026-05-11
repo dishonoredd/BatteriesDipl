@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { pathRouter } from "../routes/router";
-import FavoriteesNoItems from "@/components/ui/adds/FavoritesNoItems";
+import FavoriteesNoItems from "@/components/ui/favorites/FavoritesNoItems";
 
 export default function Favorites() {
   const favorites = useAppSelector((state) => state.favoritesSlice.favorites);
@@ -29,6 +29,18 @@ export default function Favorites() {
 
   return (
     <>
+      <div className="bg-white rounded-xl w-400 mx-auto my-10 py-5 px-10 flex items-center justify-between">
+        <p className="text-2xl font-semibold text-[#525252]">Корзина</p>
+        <select
+          className="px-4 py-2 bg-white border-2 border-neutral-300
+         rounded-lg focus:outline-none focus:border-gray-400  "
+        >
+          <option>Сначала дешевые</option>
+          <option>Сначала дорогие</option>
+          <option>Сначала старые</option>
+          <option>Сначала новые</option>
+        </select>
+      </div>
       {favorites.length ? (
         <ul>
           {favorites.map((item) => (
