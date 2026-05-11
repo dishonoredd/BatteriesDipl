@@ -11,7 +11,7 @@ export default function HeaderBurgerBtn() {
       onClick={() => dispatch(switchOpen(!isOpen))}
       className="burger-menu"
     >
-      <span className="burger-line"></span>
+      <div className="burger-line"></div>
     </button>
   );
 }

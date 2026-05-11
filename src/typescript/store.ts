@@ -48,6 +48,10 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
+    clearCart: (state) => {
+      state.cartArr = [];
+    },
+
     addItemToCart: (state, action: PayloadAction<CartItem>) => {
       const MAX_AMOUNT = 10;
 
@@ -117,8 +121,12 @@ export const store = configureStore({
 
 export const { toggleFavorite, removeFromFavorites } = favoritesSlice.actions;
 export const { switchOpen } = burgerSlice.actions;
-export const { addItemToCart, deleteItemFromCart, deleteItemFromCartFinally } =
-  cartSlice.actions;
+export const {
+  addItemToCart,
+  deleteItemFromCart,
+  deleteItemFromCartFinally,
+  clearCart,
+} = cartSlice.actions;
 
 export const selectIsFavorite = (state: RootState, productId: string) =>
   state.favoritesSlice.favorites.some((item) => item.id === productId);

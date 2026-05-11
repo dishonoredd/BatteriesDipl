@@ -17,7 +17,14 @@ export default function CatalogCounter(props: CounterProps) {
   const dispatch = useAppDispatch();
 
   function deleteOne(id: string) {
-    dispatch(deleteItemFromCart(id));
+    if (props.amount <= 1) {
+      const isComfirmed = confirm("Вы уверены что хотите удалить товар?");
+      if (isComfirmed) {
+        dispatch(deleteItemFromCart(id));
+      } else return;
+    } else {
+      dispatch(deleteItemFromCart(id));
+    }
   }
 
   function addAccToCart(acc: CartItem) {
