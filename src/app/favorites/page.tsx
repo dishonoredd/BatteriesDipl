@@ -10,9 +10,12 @@ import {
 } from "@/typescript/store";
 import Image from "next/image";
 import Link from "next/link";
+import { pathRouter } from "../routes/router";
+import FavoriteesNoItems from "@/components/ui/adds/FavoritesNoItems";
 
 export default function Favorites() {
   const favorites = useAppSelector((state) => state.favoritesSlice.favorites);
+  const batteryPath = pathRouter.BATTERY;
 
   const dispatch = useAppDispatch();
 
@@ -25,20 +28,43 @@ export default function Favorites() {
   }
 
   return (
-    <ul>
-      {favorites.map((item) => (
-        <li key={item.id}>
-          <Link href={`battery/${item.id}`}>
-            <Image src={item.img} alt="" width={200} height={200} />
-            <p>{item.name}</p>
-            <p>{item.price}</p>
-          </Link>
-          <button onClick={() => removeFromFav(item.id)}>
-            Удалить из избранного
-          </button>
-          <button onClick={() => addToCart(item)}>Добавить в корзингу</button>
-        </li>
-      ))}
-    </ul>
+    <>
+      {favorites.length ? (
+        <ul>
+          {favorites.map((item) => (
+            <li key={item.id}>
+              <Link href={batteryPath + "/" + item.id}>
+                <Image src={item.img} alt="" width={200} height={200} />
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+              </Link>
+              <button onClick={() => removeFromFav(item.id)}>
+                Удалить из избранного
+              </button>
+              <button onClick={() => addToCart(item)}>
+                Добавить в корзингу
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <FavoriteesNoItems />
+      )}
+    </>
+    // <ul>
+    //   {favorites.map((item) => (
+    //     <li key={item.id}>
+    //       <Link href={batteryPath + "/" + item.id}>
+    //         <Image src={item.img} alt="" width={200} height={200} />
+    //         <p>{item.name}</p>
+    //         <p>{item.price}</p>
+    //       </Link>
+    //       <button onClick={() => removeFromFav(item.id)}>
+    //         Удалить из избранного
+    //       </button>
+    //       <button onClick={() => addToCart(item)}>Добавить в корзингу</button>
+    //     </li>
+    //   ))}
+    // </ul>
   );
 }

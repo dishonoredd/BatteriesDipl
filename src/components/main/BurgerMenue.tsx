@@ -1,5 +1,6 @@
 "use client";
 
+import { pathRouter } from "@/app/routes/router";
 import { switchOpen, useAppDispatch, useAppSelector } from "@/typescript/store";
 import Link from "next/link";
 
@@ -9,11 +10,15 @@ type Navigation = {
   id: string;
 };
 
+const homePath = pathRouter.HOME;
+const cartPath = pathRouter.CART;
+const favPath = pathRouter.FAVORITES;
+
 const navigationArr: Navigation[] = [
-  { href: "/", title: "О компанииы", id: crypto.randomUUID() },
-  { href: "/", title: "Контакты", id: crypto.randomUUID() },
-  { href: "/cart", title: "Корзина", id: crypto.randomUUID() },
-  { href: "/favorites", title: "Избранное", id: crypto.randomUUID() },
+  { href: homePath, title: "О компанииы", id: crypto.randomUUID() },
+  { href: homePath, title: "Контакты", id: crypto.randomUUID() },
+  { href: cartPath, title: "Корзина", id: crypto.randomUUID() },
+  { href: favPath, title: "Избранное", id: crypto.randomUUID() },
 ];
 
 export default function BurgerMenue() {
