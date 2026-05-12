@@ -84,21 +84,3 @@ input:focus {
 .burger-menu:hover .burger-line::after {
   background-color: #000000;
 }
-
-.cross {
-  cursor: pointer;
-}
-.cross:before,
-.cross:after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 2px;
-  background: rgb(255, 255, 255);
-}
-.cross:before {
-  transform: rotate(45deg);
-}
-.cross:after {
-  transform: rotate(-45deg);
-}

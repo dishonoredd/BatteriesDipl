@@ -61,26 +61,25 @@ export default function Favorites() {
           <ul className="grid grid-cols-4 max-w-7xl mx-auto gap-6">
             {favorites.map((item) => (
               <li key={item.id} className="bg-white p-5 rounded-2xl shadow-lg">
-                <div>
-                  <Link
-                    href={batteryPath + "/" + item.id}
-                    className="relative w-64 h-48 block"
-                  >
-                    <Image
-                      src={item.img}
-                      alt=""
-                      className="rounded-lg object-cover"
-                      fill
-                    />
-                  </Link>
-                  <p className="py-5">{item.name}</p>
-                  <div className="w-fit px-4 py-1.5  bg-green-100 text-green-500 text-sm rounded-xl font-medium">
-                    В наличии
-                  </div>
-                  <p className="py-5 text-2xl font-bold text-gray-900">
-                    {item.price.toLocaleString("ru-RU")} ₽
-                  </p>
+                <Link
+                  href={batteryPath + "/" + item.id}
+                  className="relative w-full h-48 block"
+                >
+                  <Image
+                    src={item.img}
+                    alt=""
+                    className="rounded-lg object-cover"
+                    fill
+                  />
+                </Link>
+                <p className="py-5">{item.name}</p>
+                <div className="w-fit px-4 py-1.5  bg-green-100 text-green-500 text-sm rounded-xl font-medium">
+                  В наличии
                 </div>
+                <p className="py-5 text-2xl font-bold text-gray-900">
+                  {item.price.toLocaleString("ru-RU")} ₽
+                </p>
+
                 <div className="flex gap-2">
                   <button
                     onClick={() => addToCart(item)}

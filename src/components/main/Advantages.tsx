@@ -23,12 +23,11 @@ export default function Advantages() {
           <h2 className="text-4xl lg:text-5xl font-semibold text-white mb-4">
             Наши преимущества
           </h2>
-          <div className="w-24 h-1 bg-linear-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
         </div>
 
         <div
           className="flex flex-col lg:flex-row gap-8 lg:gap-12 bg-linear-to-br
-         from-[#1e1e1e] to-[#141414] rounded-3xl p-6 lg:p-10 border border-white/5"
+         from-[#1a1a1a] to-[#141414] rounded-3xl p-6 lg:p-10 border border-white/5"
         >
           <div className="relative lg:w-1/2 overflow-hidden rounded-2xl group h-fit">
             <Image
@@ -47,7 +46,6 @@ export default function Advantages() {
                 key={li}
                 className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"
               >
-                {/* Иконка-галочка */}
                 <div
                   className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center
                  justify-center shrink-0 mt-0.5"
