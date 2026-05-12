@@ -7,7 +7,7 @@ export default function FavoriteNoItems() {
 
   return (
     <>
-      <div className="h-skeleton-battyry  pt-70 flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center h-screen">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
@@ -18,7 +18,7 @@ export default function FavoriteNoItems() {
             d="M50,80 L15,45 A20,20 0 1,1 50,30 A20,20 0 1,1 85,45 Z"
             fill="transparent"
             stroke="rgb(156, 163, 175)"
-            strokeWidth="8"
+            strokeWidth="3"
             strokeLinejoin="round"
             strokeLinecap="round"
           />
