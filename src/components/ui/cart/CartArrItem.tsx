@@ -15,15 +15,17 @@ export default function CartArrItem(props: CartArrP) {
   return (
     <li
       key={props.item.id}
-      className="flex p-4 bg-neutral-50 rounded-2xl duration-100 hover:bg-neutral-100 "
+      className="flex p-4 bg-gray-50 rounded-2xl duration-100 hover:bg-neutral-100"
     >
-      <Image
-        src={props.item.img}
-        alt={"img"}
-        width={200}
-        height={200}
-        className="rounded-xl"
-      />
+      <div className="relative w-46 h-36 shrink-0 rounded-xl overflow-hidden">
+        <Image
+          src={props.item.img}
+          alt={props.item.name}
+          fill
+          className="object-cover"
+          sizes="184px"
+        />
+      </div>
       <div className="flex flex-col w-3/5">
         <div className="flex flex-col justify-between h-full ml-3">
           <p className="text-[#333] text-lg">{props.item.name}</p>
@@ -35,7 +37,9 @@ export default function CartArrItem(props: CartArrP) {
         </div>
       </div>
       <div className="w-1/5">
-        <p className="text-rose-400 text-lg font-bold">{props.item.price} ₽</p>
+        <p className="text-rose-400 text-lg font-bold">
+          {props.item.price.toLocaleString("ru-RU")} ₽
+        </p>
         <p className="text-neutral-500 text-md font-semibold">за шт.</p>
       </div>
       <div className="w-1/5 flex items-start justify-end">

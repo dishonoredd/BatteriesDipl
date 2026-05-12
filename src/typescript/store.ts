@@ -64,7 +64,7 @@ const cartSlice = createSlice({
           existing.amount += 1;
         } else return;
       } else {
-        state.cartArr.push({ ...action.payload, amount: 1 });
+        state.cartArr.unshift({ ...action.payload, amount: 1 });
       }
     },
 
@@ -98,7 +98,7 @@ const favoritesSlice = createSlice({
         (item) => item.id === action.payload.id,
       );
       if (index === -1) {
-        state.favorites.push(action.payload);
+        state.favorites.unshift(action.payload);
       } else {
         state.favorites.splice(index, 1);
       }

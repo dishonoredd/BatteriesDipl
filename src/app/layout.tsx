@@ -4,6 +4,7 @@ import "../styles/style.css";
 import { ReduxProvider } from "@/components/additional/CustomReduxProvider";
 import Header from "@/components/main/Header";
 import BurgerMenue from "@/components/main/BurgerMenue";
+import { ConfigProvider } from "antd";
 
 const montserrat = Montserrat({
   variable: "--font-geist-sans",
@@ -24,9 +25,22 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.variable} antialiased`}>
         <ReduxProvider>
-          <Header />
-          {children}
-          <BurgerMenue />
+          <ConfigProvider
+            theme={{
+              components: {
+                Select: {
+                  activeBorderColor: "d9d9d9",
+                  hoverBorderColor: "d9d9d9",
+                  optionSelectedBg: "#ececec",
+                  activeOutlineColor: "ececec",
+                },
+              },
+            }}
+          >
+            <Header />
+            {children}
+            <BurgerMenue />
+          </ConfigProvider>
         </ReduxProvider>
       </body>
     </html>

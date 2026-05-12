@@ -37,7 +37,7 @@ export default function Cart() {
     <>
       {cartArr.length ? (
         <>
-          <div className="rounded-xl w-400 mx-auto my-10 py-5  flex items-center justify-between">
+          <div className="rounded-xl max-w-7xl mx-auto my-10 py-5  flex items-center justify-between">
             <p className="text-2xl font-semibold text-[#525252]">Корзина</p>
 
             <button
@@ -50,10 +50,10 @@ export default function Cart() {
               </span>
             </button>
           </div>
-          <div className="w-400 mx-auto bg-white px-16   py-10 rounded-2xl">
+          <div className="max-w-7xl mx-auto bg-white px-16 py-10 rounded-2xl shadow-lg">
             <header className=" pb-10 flex items-center justify-between">
               <p className="text-xl text-[#333] font-semibold">
-                Общая стоимость корзины: {totalPrice} ₽
+                Общая стоимость корзины: {totalPrice.toLocaleString("ru-RU")} ₽
               </p>
               <button
                 onClick={() => clearAllCart()}

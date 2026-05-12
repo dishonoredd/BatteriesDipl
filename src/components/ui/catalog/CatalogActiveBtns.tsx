@@ -34,7 +34,9 @@ export default function CatalogActiveBtns(props: CatalogActiveBtnsProps) {
       <p className="text-md py-7">{props.accum.name}</p>
 
       <div className="h-full flex justify-between items-end">
-        <p className="text-xl font-bold text-[#222]">{props.accum.price} ₽</p>{" "}
+        <p className="text-xl font-bold text-[#222]">
+          {props.accum.price.toLocaleString("ru-RU")} ₽
+        </p>{" "}
         {itemAmount ? (
           <CatalogCounter amount={itemAmount} acc={props.accum} />
         ) : (
