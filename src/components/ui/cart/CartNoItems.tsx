@@ -7,7 +7,7 @@ export default function CartNoItems() {
 
   return (
     <>
-      <div className="h-skeleton-battyry  pt-70 flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center h-screen">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="58"
