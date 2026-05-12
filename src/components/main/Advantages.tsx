@@ -12,7 +12,7 @@ const listItems: string[] = [
 
 export default function Advantages() {
   return (
-    <section className="relative bg-linear-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f]">
+    <section className="relative bg-linear-to-br from-[#0a0a0a] via-[#0c0c0c] to-[#0f0f0f]">
       <div
         className="absolute inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] 
       bg-size-[32px_32px] opacity-20"
@@ -27,7 +27,7 @@ export default function Advantages() {
 
         <div
           className="flex flex-col lg:flex-row gap-8 lg:gap-12 bg-linear-to-br
-         from-[#1a1a1a] to-[#141414] rounded-3xl p-6 lg:p-10 border border-white/5"
+         from-[#101010] to-[#0a0a0a] rounded-3xl p-6 lg:p-10 border border-white/5"
         >
           <div className="relative lg:w-1/2 overflow-hidden rounded-2xl group h-fit">
             <Image
