@@ -1,5 +1,3 @@
-import { pathRouter } from "../routes/router";
-
 export enum options {
   new = "Сначала новые",
   old = "Сначала старые",
@@ -13,5 +11,3 @@ export const optionsArr = [
   options.cheap,
   options.expensive,
 ];
-
-export const batteryPath = pathRouter.BATTERY;

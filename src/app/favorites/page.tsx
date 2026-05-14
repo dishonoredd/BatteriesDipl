@@ -1,30 +1,17 @@
 "use client";
 
 import { AccumType } from "@/types/AccumType";
-import {
-  addItemToCart,
-  removeFromFavorites,
-  useAppDispatch,
-  useAppSelector,
-} from "@/typescript/store";
-import Image from "next/image";
-import Link from "next/link";
-import { pathRouter } from "../routes/router";
+import { useAppSelector } from "@/typescript/store";
 import FavoriteesNoItems from "@/components/ui/favorites/FavoritesNoItems";
 import { Select } from "antd";
 import { useMemo, useState } from "react";
-import { batteryPath, options, optionsArr } from "./constants";
+import { options, optionsArr } from "./constants";
+import FavoriteItem from "@/components/ui/favorites/FavoriteItem";
 
 export default function Favorites() {
   const favorites = useAppSelector((state) => state.favoritesSlice.favorites);
-  const cartItems = useAppSelector((state) => state.cartSlice.cartArr);
-  const dispatch = useAppDispatch();
 
   const [sortOption, setSortOption] = useState<string>(options.new);
-
-  const isInCart = (itemId: string) => {
-    return cartItems.some((item) => item.id === itemId);
-  };
 
   function sortFavorites(accs: AccumType[], sortType: string) {
     const sortedItems = [...accs];
@@ -35,6 +22,12 @@ export default function Favorites() {
 
       case options.expensive:
         return sortedItems.sort((a, b) => b.price - a.price);
+
+      case options.new:
+        return sortedItems;
+
+      case options.old:
+        return sortedItems.reverse();
 
       default:
         return sortedItems;
@@ -49,19 +42,11 @@ export default function Favorites() {
     setSortOption(value);
   }
 
-  function addToCart(acc: AccumType) {
-    dispatch(addItemToCart({ ...acc, amount: 0 }));
-  }
-
-  function removeFromFav(id: string) {
-    dispatch(removeFromFavorites(id));
-  }
-
   return (
     <>
       {favorites.length ? (
         <>
-          <div
+          <header
             className="bg-white rounded-xl max-w-7xl mx-auto my-10 py-5 px-10 flex items-center
            justify-between"
           >
@@ -76,69 +61,10 @@ export default function Favorites() {
               })}
               placeholder="Сортировка"
             ></Select>
-          </div>
-          <ul className="grid grid-cols-4 max-w-7xl mx-auto gap-6">
+          </header>
+          <ul className="grid grid-cols-4 max-w-7xl mx-auto gap-6 mb-10">
             {sortedFavorites.map((item) => (
-              <li
-                key={item.id}
-                className="bg-white p-5 rounded-4xl shadow-lg duration-100 hover:bg-gray-100"
-              >
-                <Link
-                  href={batteryPath + "/" + item.id}
-                  className="relative w-full h-48 block overflow-hidden rounded-2xl"
-                >
-                  <Image
-                    src={item.img}
-                    alt=""
-                    className=" object-cover duration-300 hover:scale-106 hover:brightness-90 "
-                    fill
-                  />
-                </Link>
-                <Link href={batteryPath + "/" + item.id} className="py-5 block">
-                  {item.name}
-                </Link>
-                <div className="w-fit px-4 py-1.5 bg-green-100 text-green-500 text-sm rounded-xl font-medium">
-                  В наличии
-                </div>
-                <p className="py-5 text-2xl font-bold text-gray-900">
-                  {item.price.toLocaleString("ru-RU")} ₽
-                </p>
-
-                <div className="flex gap-2">
-                  {isInCart(item.id) ? (
-                    <button
-                      className="flex-1  text-white bg-neutral-800 
-                    rounded-xl duration-100 hover:bg-neutral-950"
-                    >
-                      Добавлено
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => addToCart(item)}
-                      className="flex-1  text-white bg-neutral-800 rounded-xl duration-100 hover:bg-neutral-950"
-                    >
-                      В корзину
-                    </button>
-                  )}
-
-                  <button
-                    onClick={() => removeFromFav(item.id)}
-                    className="h-10 w-10 flex items-center justify-center bg-gray-200 rounded-xl
-                        duration-150 hover:bg-gray-300"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                    >
-                      <path
-                        fill="#555"
-                        d="M13 6.333c.417 0 .833.235.833.834 0 6.666-.416 8.333-5.833 8.333s-5.834-1.667-5.834-8.333c0-.6.418-.834.834-.834zm-6.667 2.5a.834.834 0 0 0-.833.834v1.666a.834.834 0 1 0 1.666 0V9.667a.834.834 0 0 0-.833-.834m3.333 0a.834.834 0 0 0-.833.834v1.666a.834.834 0 1 0 1.667 0V9.667a.834.834 0 0 0-.834-.834M8.466.5a2.5 2.5 0 0 1 2.371 1.709l.276.826c2.266.09 3.553.406 3.553 1.527 0 .938-.416.938-1.25.938H2.583c-.833 0-1.25 0-1.25-.937 0-1.122 1.288-1.438 3.555-1.528l.274-.826A2.5 2.5 0 0 1 7.535.5zm-.931 1.667a.83.83 0 0 0-.79.57l-.09.265Q7.297 3 8 3q.706 0 1.345.002l-.089-.266a.83.83 0 0 0-.79-.569z"
-                      ></path>
-                    </svg>
-                  </button>
-                </div>
-              </li>
+              <FavoriteItem key={item.id} item={item} />
             ))}
           </ul>
         </>

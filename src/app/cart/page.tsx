@@ -1,13 +1,8 @@
 "use client";
 
 import CartNoItems from "@/components/ui/cart/CartNoItems";
-import CartActiveBtns from "@/components/ui/cart/CartActiveBtns";
-import CatalogCounter from "@/components/ui/catalog/CatalogCounter";
 import { clearCart, useAppDispatch, useAppSelector } from "@/typescript/store";
-import Image from "next/image";
-import Link from "next/link";
 import { useMemo } from "react";
-import { pathRouter } from "../routes/router";
 import CartArrItem from "@/components/ui/cart/CartArrItem";
 
 export default function Cart() {
@@ -37,7 +32,7 @@ export default function Cart() {
     <>
       {cartArr.length ? (
         <>
-          <div className="rounded-xl max-w-7xl mx-auto my-10 py-5  flex items-center justify-between">
+          <div className="rounded-xl max-w-7xl mx-auto my-5 py-5  flex items-center justify-between">
             <p className="text-2xl font-semibold text-[#525252]">Корзина</p>
 
             <button
