@@ -1,4 +1,3 @@
-import { AccumType } from "@/types/AccumType";
 import { CartItem } from "@/types/CartItemType";
 import {
   addItemToCart,

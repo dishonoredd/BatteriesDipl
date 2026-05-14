@@ -12,26 +12,42 @@ import Link from "next/link";
 import { pathRouter } from "../routes/router";
 import FavoriteesNoItems from "@/components/ui/favorites/FavoritesNoItems";
 import { Select } from "antd";
+import { useMemo, useState } from "react";
+import { batteryPath, options, optionsArr } from "./constants";
 
 export default function Favorites() {
   const favorites = useAppSelector((state) => state.favoritesSlice.favorites);
-  const batteryPath = pathRouter.BATTERY;
+  const cartItems = useAppSelector((state) => state.cartSlice.cartArr);
+  const dispatch = useAppDispatch();
 
-  enum options {
-    new = "Сначала новые",
-    old = "Сначала старые",
-    cheap = "Сначала дешевые",
-    expensive = "Сначала дорогие",
+  const [sortOption, setSortOption] = useState<string>(options.new);
+
+  const isInCart = (itemId: string) => {
+    return cartItems.some((item) => item.id === itemId);
+  };
+
+  function sortFavorites(accs: AccumType[], sortType: string) {
+    const sortedItems = [...accs];
+
+    switch (sortType) {
+      case options.cheap:
+        return sortedItems.sort((a, b) => a.price - b.price);
+
+      case options.expensive:
+        return sortedItems.sort((a, b) => b.price - a.price);
+
+      default:
+        return sortedItems;
+    }
   }
 
-  const optionsArr = [
-    options.new,
-    options.old,
-    options.cheap,
-    options.expensive,
-  ];
+  const sortedFavorites = useMemo(() => {
+    return sortFavorites(favorites, sortOption);
+  }, [favorites, sortOption]);
 
-  const dispatch = useAppDispatch();
+  function handleSortChange(value: string) {
+    setSortOption(value);
+  }
 
   function addToCart(acc: AccumType) {
     dispatch(addItemToCart({ ...acc, amount: 0 }));
@@ -53,27 +69,35 @@ export default function Favorites() {
 
             <Select
               defaultValue={options.new}
+              value={sortOption}
+              onChange={handleSortChange}
               options={optionsArr.map((option) => {
                 return { value: option };
               })}
+              placeholder="Сортировка"
             ></Select>
           </div>
           <ul className="grid grid-cols-4 max-w-7xl mx-auto gap-6">
-            {favorites.map((item) => (
-              <li key={item.id} className="bg-white p-5 rounded-2xl shadow-lg">
+            {sortedFavorites.map((item) => (
+              <li
+                key={item.id}
+                className="bg-white p-5 rounded-4xl shadow-lg duration-100 hover:bg-gray-100"
+              >
                 <Link
                   href={batteryPath + "/" + item.id}
-                  className="relative w-full h-48 block"
+                  className="relative w-full h-48 block overflow-hidden rounded-2xl"
                 >
                   <Image
                     src={item.img}
                     alt=""
-                    className="rounded-lg object-cover"
+                    className=" object-cover duration-300 hover:scale-106 hover:brightness-90 "
                     fill
                   />
                 </Link>
-                <p className="py-5">{item.name}</p>
-                <div className="w-fit px-4 py-1.5  bg-green-100 text-green-500 text-sm rounded-xl font-medium">
+                <Link href={batteryPath + "/" + item.id} className="py-5 block">
+                  {item.name}
+                </Link>
+                <div className="w-fit px-4 py-1.5 bg-green-100 text-green-500 text-sm rounded-xl font-medium">
                   В наличии
                 </div>
                 <p className="py-5 text-2xl font-bold text-gray-900">
@@ -81,12 +105,22 @@ export default function Favorites() {
                 </p>
 
                 <div className="flex gap-2">
-                  <button
-                    onClick={() => addToCart(item)}
-                    className="flex-1  text-white bg-neutral-800 rounded-xl duration-100 hover:bg-neutral-900"
-                  >
-                    В корзину
-                  </button>
+                  {isInCart(item.id) ? (
+                    <button
+                      className="flex-1  text-white bg-neutral-800 
+                    rounded-xl duration-100 hover:bg-neutral-950"
+                    >
+                      Добавлено
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => addToCart(item)}
+                      className="flex-1  text-white bg-neutral-800 rounded-xl duration-100 hover:bg-neutral-950"
+                    >
+                      В корзину
+                    </button>
+                  )}
+
                   <button
                     onClick={() => removeFromFav(item.id)}
                     className="h-10 w-10 flex items-center justify-center bg-gray-200 rounded-xl
@@ -112,20 +146,5 @@ export default function Favorites() {
         <FavoriteesNoItems />
       )}
     </>
-    // <ul>
-    //   {favorites.map((item) => (
-    //     <li key={item.id}>
-    //       <Link href={batteryPath + "/" + item.id}>
-    //         <Image src={item.img} alt="" width={200} height={200} />
-    //         <p>{item.name}</p>
-    //         <p>{item.price}</p>
-    //       </Link>
-    //       <button onClick={() => removeFromFav(item.id)}>
-    //         Удалить из избранного
-    //       </button>
-    //       <button onClick={() => addToCart(item)}>Добавить в корзингу</button>
-    //     </li>
-    //   ))}
-    // </ul>
   );
 }

@@ -30,7 +30,7 @@ export default function BurgerMenue() {
       className={`w-full h-screen flex -translate-x-full fixed top-0 z-10
         transition duration-400 ${isOpen ? "translate-x-0" : ""}`}
     >
-      <div className="bg-[#0c0c0c] w-1/3 border-r border-r-[#393939] flex items-center justify-center relative">
+      <div className="bg-[#0c0c0c] w-1/3 border-r border-r-[#222] flex items-center justify-center relative">
         <button
           onClick={() => dispatch(switchOpen(false))}
           className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors group"
