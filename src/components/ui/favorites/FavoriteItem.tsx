@@ -1,6 +1,5 @@
 "use client";
 
-import { pathRouter } from "@/app/routes/router";
 import { AccumType } from "@/types/AccumType";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,6 +9,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "@/typescript/store";
+import { pathRouter } from "@/routes/router";
 
 type FavItemP = {
   item: AccumType;
@@ -37,22 +37,24 @@ export default function FavoriteItem(props: FavItemP) {
   return (
     <li
       key={props.item.id}
-      className="bg-white p-5 rounded-4xl shadow-lg duration-100 hover:bg-gray-100"
+      className="bg-white p-5 rounded-4xl shadow-lg duration-100 hover:bg-gray-50"
     >
-      <Link
-        href={batteryPath + "/" + props.item.id}
-        className="relative w-full h-48 block overflow-hidden rounded-2xl"
-      >
-        <Image
-          src={props.item.img}
-          alt=""
-          className=" object-cover duration-300 hover:scale-106 hover:brightness-90 "
-          fill
-        />
-      </Link>
-      <Link href={batteryPath + "/" + props.item.id} className="py-5 block">
-        {props.item.name}
-      </Link>
+      <div className="duration-100 hover:text-green-500">
+        <Link
+          href={batteryPath + "/" + props.item.id}
+          className="relative w-full h-48 block overflow-hidden rounded-2xl"
+        >
+          <Image
+            src={props.item.img}
+            alt=""
+            className=" object-cover duration-300 hover:scale-106 hover:brightness-90 "
+            fill
+          />
+        </Link>
+        <Link href={batteryPath + "/" + props.item.id} className="py-5 block">
+          {props.item.name}
+        </Link>
+      </div>
       <div className="w-fit px-4 py-1.5 bg-green-100 text-green-500 text-sm rounded-xl font-medium">
         В наличии
       </div>

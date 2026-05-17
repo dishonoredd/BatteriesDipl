@@ -7,7 +7,6 @@ export default function App() {
     <>
       <Mainpage />
       <Advantages />
-
       <Catalog />
     </>
   );

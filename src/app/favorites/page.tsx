@@ -43,7 +43,7 @@ export default function Favorites() {
   }
 
   return (
-    <>
+    <div className="min-h-screen">
       {favorites.length ? (
         <>
           <header
@@ -71,6 +71,6 @@ export default function Favorites() {
       ) : (
         <FavoriteesNoItems />
       )}
-    </>
+    </div>
   );
 }

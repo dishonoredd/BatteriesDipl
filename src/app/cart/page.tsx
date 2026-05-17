@@ -29,7 +29,7 @@ export default function Cart() {
   console.log("render");
 
   return (
-    <>
+    <div className="min-h-screen">
       {cartArr.length ? (
         <>
           <div className="rounded-xl max-w-7xl mx-auto my-5 py-5  flex items-center justify-between">
@@ -45,7 +45,7 @@ export default function Cart() {
               </span>
             </button>
           </div>
-          <div className="max-w-7xl mx-auto bg-white px-16 py-10 rounded-2xl shadow-lg">
+          <div className="max-w-7xl mx-auto bg-white px-16 py-10 rounded-2xl shadow-lg ">
             <header className=" pb-10 flex items-center justify-between">
               <p className="text-xl text-[#333] font-semibold">
                 Общая стоимость корзины: {totalPrice.toLocaleString("ru-RU")} ₽
@@ -58,7 +58,7 @@ export default function Cart() {
                 Очистить корзину
               </button>
             </header>
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-2 ">
               {cartArr.map((item) => (
                 <CartArrItem key={item.id} item={item} />
               ))}
@@ -68,6 +68,6 @@ export default function Cart() {
       ) : (
         <CartNoItems />
       )}
-    </>
+    </div>
   );
 }

@@ -5,23 +5,22 @@ import CatalogFavIcon from "../ui/catalog/CatalogFavIcon";
 
 export default function Catalog() {
   return (
-    <>
-      <h2 className="text-left py-16 font-semibold text-2xl text-[#222] w-400 mx-auto">
+    <section>
+      <h2 className="text-left py-16 font-semibold text-2xl text-[#222] max-w-400 mx-auto">
         Каталог аккумуляторов
       </h2>
-      <ul className=" w-400 mx-auto grid grid-cols-5 gap-12">
+      <ul className=" max-w-400 mx-auto grid grid-cols-5 gap-12">
         {accumlist.map((accum) => (
           <li
             key={accum.id}
-            className="h-full flex flex-col shadow-md rounded-lg bg-white"
+            className="h-full flex flex-col p-2 shadow-md rounded-2xl bg-white "
           >
-            <div className="relative">
+            <div className="relative w-full h-50">
               <Image
                 src={accum.img}
                 alt="Товар 1"
-                width={230}
-                height={600}
-                className="w-full h-50 rounded-t-lg"
+                fill
+                className="w-full h-50 rounded-md"
               />
               <CatalogFavIcon acc={accum} />
             </div>
@@ -29,6 +28,6 @@ export default function Catalog() {
           </li>
         ))}
       </ul>
-    </>
+    </section>
   );
 }

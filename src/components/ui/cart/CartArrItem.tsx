@@ -3,7 +3,7 @@ import CartActiveBtns from "./CartActiveBtns";
 import Image from "next/image";
 import CatalogCounter from "../catalog/CatalogCounter";
 import Link from "next/link";
-import { pathRouter } from "@/app/routes/router";
+import { pathRouter } from "@/routes/router";
 
 type CartArrP = {
   item: CartItem;
@@ -15,7 +15,7 @@ export default function CartArrItem(props: CartArrP) {
   return (
     <li
       key={props.item.id}
-      className="flex p-4 bg-gray-50 rounded-2xl duration-100 hover:bg-neutral-100"
+      className="flex p-4  bg-gray-50 rounded-2xl duration-100 hover:bg-neutral-100"
     >
       <div className="relative w-46 h-36 shrink-0 rounded-xl overflow-hidden">
         <Image
@@ -46,12 +46,12 @@ export default function CartArrItem(props: CartArrP) {
         <div className="flex flex-col items-end justify-between h-full w-40">
           <CatalogCounter amount={props.item.amount} acc={props.item} />
           {/* <Link
-                      href={baterryPath + "/" + item.id}
-                      className="text-neutral-600 border border-neutral-300 px-4 py-1.5 rounded-xl
+            href={baterryPath + "/" + props.item.id}
+            className="text-neutral-600 border border-neutral-300 px-4 py-1.5 rounded-xl
                        hover:border-rose-400 hover:text-rose-500 hover:bg-rose-50 transition-all duration-200 text-sm font-medium"
-                    >
-                      Подробнее
-                    </Link> */}
+          >
+            Подробнее
+          </Link> */}
           <Link
             href={baterryPath + "/" + props.item.id}
             className="text-neutral-400 hover:text-rose-500 transition-colors duration-200 text-sm font-medium flex items-center gap-1"

@@ -1,6 +1,6 @@
 "use client";
 
-import { pathRouter } from "@/app/routes/router";
+import { pathRouter } from "@/routes/router";
 import { switchOpen, useAppDispatch, useAppSelector } from "@/typescript/store";
 import Link from "next/link";
 
@@ -13,12 +13,14 @@ type Navigation = {
 const homePath = pathRouter.HOME;
 const cartPath = pathRouter.CART;
 const favPath = pathRouter.FAVORITES;
+const regPath = pathRouter.REGISTRATION;
 
 const navigationArr: Navigation[] = [
   { href: homePath, title: "О компанииы", id: crypto.randomUUID() },
   { href: homePath, title: "Контакты", id: crypto.randomUUID() },
   { href: cartPath, title: "Корзина", id: crypto.randomUUID() },
   { href: favPath, title: "Избранное", id: crypto.randomUUID() },
+  { href: regPath, title: "Регестрация", id: crypto.randomUUID() },
 ];
 
 export default function BurgerMenue() {
@@ -30,7 +32,7 @@ export default function BurgerMenue() {
       className={`w-full h-screen flex -translate-x-full fixed top-0 z-10
         transition duration-400 ${isOpen ? "translate-x-0" : ""}`}
     >
-      <div className="bg-[#0c0c0c] w-1/3 border-r border-r-[#222] flex items-center justify-center relative">
+      <div className="bg-neutral-900 w-1/3 border-r border-r-[#222] flex items-center justify-center relative">
         <button
           onClick={() => dispatch(switchOpen(false))}
           className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors group"

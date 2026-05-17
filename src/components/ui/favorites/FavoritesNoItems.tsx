@@ -1,4 +1,4 @@
-import { pathRouter } from "@/app/routes/router";
+import { pathRouter } from "@/routes/router";
 import Link from "next/link";
 
 export default function FavoriteNoItems() {
@@ -7,7 +7,7 @@ export default function FavoriteNoItems() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen">
+      <section className="flex flex-col items-center justify-center h-screen">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
@@ -47,7 +47,7 @@ export default function FavoriteNoItems() {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

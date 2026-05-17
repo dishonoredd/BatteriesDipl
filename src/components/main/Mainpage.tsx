@@ -1,10 +1,10 @@
 export default function Mainpag() {
   return (
-    <div className="bg-mainpage flex items-center justify-center flex-col gap-8">
+    <section className="bg-mainpage flex items-center justify-center flex-col gap-8">
       <h1 className="text-white text-6xl">Продажа аккумуляторов в Сочи</h1>
       <p className="text-white text-2xl">
         Купите у нас аккумулятор и получите бесплатную установку
       </p>
-    </div>
+    </section>
   );
 }

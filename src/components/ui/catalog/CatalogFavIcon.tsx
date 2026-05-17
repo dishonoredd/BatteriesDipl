@@ -26,8 +26,9 @@ export default function CatalogFavIcon(props: FavP) {
   return (
     <button
       onClick={() => togleFavourites(props.acc)}
-      className={`absolute top-3 right-3 p-2   backdrop-blur-sm
-    rounded-full transition-all duration-200 hover:scale-110 hover:bg-white ${pressed ? "bg-red-100" : "bg-white/80"}`}
+      className={`absolute top-3 right-3 p-2 backdrop-blur-sm
+    rounded-full transition-all duration-200 hover:scale-110
+     hover:bg-white ${pressed ? "bg-red-100" : "bg-gray-100"}`}
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
         <path
