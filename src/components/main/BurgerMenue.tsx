@@ -14,12 +14,14 @@ const homePath = pathRouter.HOME;
 const cartPath = pathRouter.CART;
 const favPath = pathRouter.FAVORITES;
 const regPath = pathRouter.REGISTRATION;
+const loginPath = pathRouter.LOGIN;
 
 const navigationArr: Navigation[] = [
   { href: homePath, title: "О компанииы", id: crypto.randomUUID() },
   { href: homePath, title: "Контакты", id: crypto.randomUUID() },
   { href: cartPath, title: "Корзина", id: crypto.randomUUID() },
   { href: favPath, title: "Избранное", id: crypto.randomUUID() },
+  { href: loginPath, title: "Вход", id: crypto.randomUUID() },
   { href: regPath, title: "Регестрация", id: crypto.randomUUID() },
 ];
 

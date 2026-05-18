@@ -5,6 +5,8 @@ const api = new ApiProvider();
 
 const url = "";
 
+// тут будут отрисовываться данные конкретного аккумулятора
+
 export default async function Battery({ params }: { params: { id: string } }) {
   const { id } = await params;
 

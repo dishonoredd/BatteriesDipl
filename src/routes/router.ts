@@ -4,4 +4,5 @@ export const pathRouter = {
   CART: "/cart",
   FAVORITES: "/favorites",
   REGISTRATION: "/registration",
+  LOGIN: "/login",
 };
