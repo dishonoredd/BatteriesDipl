@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "../styles/style.css";
 import { ReduxProvider } from "@/components/additional/CustomReduxProvider";
-import Header from "@/components/main/Header";
-import BurgerMenue from "@/components/main/BurgerMenue";
 import { ConfigProvider } from "antd";
-import Footer from "@/components/main/Footer";
 
 const montserrat = Montserrat({
   variable: "--font-geist-sans",
@@ -38,10 +35,7 @@ export default function RootLayout({
               },
             }}
           >
-            <Header />
             {children}
-            <Footer />
-            <BurgerMenue />
           </ConfigProvider>
         </ReduxProvider>
       </body>
