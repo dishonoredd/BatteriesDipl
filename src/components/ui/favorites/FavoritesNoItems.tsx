@@ -7,7 +7,7 @@ export default function FavoriteNoItems() {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center h-screen">
+      <section className="flex flex-col items-center justify-center min-h-screen">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
