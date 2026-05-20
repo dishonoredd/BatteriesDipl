@@ -65,8 +65,8 @@ export default function FavoriteItem(props: FavItemP) {
       <div className="flex gap-2">
         {isInCart(props.item.id) ? (
           <button
-            className="flex-1  text-white bg-neutral-800 
-                    rounded-xl duration-100 hover:bg-neutral-950"
+            className="flex-1  text-gray-600 bg-gray-200 
+                    rounded-xl duration-100 hover:bg-gray-300"
           >
             Добавлено
           </button>
