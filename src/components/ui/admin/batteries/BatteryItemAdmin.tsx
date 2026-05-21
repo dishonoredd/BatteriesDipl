@@ -25,6 +25,7 @@ export default function BatteryItemAdmin(props: BatteryItemAdminP) {
             sizes="184px"
           />
         </div>
+        <p className="px-2 pt-1 font-semibold">{props.battery.id}</p>
         <p className="p-2">{props.battery.name}</p>
         <p className="p-2 font-semibold">{props.battery.price} ₽</p>
       </Link>
