@@ -1,7 +1,11 @@
 "use client";
 
-import { pathRouter } from "@/routes/router";
-import { switchOpen, useAppDispatch, useAppSelector } from "@/typescript/store";
+import { routerAdmin } from "@/routes/router-admin";
+import {
+  switchOpenAdmin,
+  useAppDispatch,
+  useAppSelector,
+} from "@/typescript/store";
 import Link from "next/link";
 
 type Navigation = {
@@ -10,27 +14,38 @@ type Navigation = {
   id: string;
 };
 
-const homePath = pathRouter.HOME;
-const cartPath = pathRouter.CART;
-const favPath = pathRouter.FAVORITES;
-const regPath = pathRouter.REGISTRATION;
-const loginPath = pathRouter.LOGIN;
+const clientPath = routerAdmin.CLIENT_HOME;
+const batteriesListPath = routerAdmin.BATTERIES_LIST;
+const homePath = routerAdmin.HOME_PAGE;
+const batteryAddPath = routerAdmin.BATTERY_ADD;
+const usersListPath = routerAdmin.USERS_LIST;
 
 const navigationArr: Navigation[] = [
-  { href: homePath, title: "Аккумуляторы", id: crypto.randomUUID() },
-  { href: homePath, title: "Контакты", id: crypto.randomUUID() },
-  { href: cartPath, title: "Корзина", id: crypto.randomUUID() },
-  { href: favPath, title: "Избранное", id: crypto.randomUUID() },
-  { href: loginPath, title: "Вход", id: crypto.randomUUID() },
-  { href: regPath, title: "Регестрация", id: crypto.randomUUID() },
+  { href: clientPath, title: "Клиентская страница", id: crypto.randomUUID() },
+  { href: homePath, title: "Домашняя страница", id: crypto.randomUUID() },
+  {
+    href: batteriesListPath,
+    title: "Список Аккумуляторов",
+    id: crypto.randomUUID(),
+  },
+  {
+    href: batteryAddPath,
+    title: "Добавить аккумулятор",
+    id: crypto.randomUUID(),
+  },
+  {
+    href: usersListPath,
+    title: "Список пользователей",
+    id: crypto.randomUUID(),
+  },
 ];
 
-export default function BurgerMenue() {
+export default function BurgerMenueAdmin() {
   const dispatch = useAppDispatch();
-  const isOpen = useAppSelector((state) => state.burgerSlice.isOpened);
+  const isOpen = useAppSelector((state) => state.burgerSlice.isOpenAdmin);
 
   function switchState(val: boolean) {
-    dispatch(switchOpen(val));
+    dispatch(switchOpenAdmin(val));
   }
 
   return (

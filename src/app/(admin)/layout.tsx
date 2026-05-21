@@ -1,4 +1,5 @@
-import HeaderAdmin from "@/components/ui/admin/HeaderAdmin";
+import BurgerMenueAdmin from "@/components/ui/admin/burger/BurgerMenuAdmin";
+import HeaderAdmin from "@/components/ui/admin/header/HeaderAdmin";
 
 export default function MainLayout({
   children,
@@ -9,6 +10,7 @@ export default function MainLayout({
     <>
       <HeaderAdmin />
       {children}
+      <BurgerMenueAdmin />
     </>
   );
 }

@@ -1,12 +1,16 @@
 "use client";
 
-import { changeOpen, useAppDispatch } from "@/typescript/store";
+import {
+  changeOpenAdmin,
+  switchOpenAdmin,
+  useAppDispatch,
+} from "@/typescript/store";
 
-export default function HeaderBurgerBtn() {
+export default function HeaderBurgerBtnAdmin() {
   const dispatch = useAppDispatch();
 
   function switchState() {
-    dispatch(changeOpen());
+    dispatch(changeOpenAdmin());
   }
 
   return (

@@ -12,6 +12,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 type initialBurgerStateType = {
   isOpened: boolean;
+  isOpenAdmin: boolean;
 };
 
 type initialCartStateType = {
@@ -24,6 +25,7 @@ type initialFavoriteStateType = {
 
 const initialBurgerState: initialBurgerStateType = {
   isOpened: false,
+  isOpenAdmin: false,
 };
 
 const initialCartState: initialCartStateType = {
@@ -38,8 +40,17 @@ const burgerSlice = createSlice({
   name: "burger",
   initialState: initialBurgerState,
   reducers: {
+    changeOpen: (state) => {
+      state.isOpened = !state.isOpened;
+    },
     switchOpen: (state, action: PayloadAction<boolean>) => {
       state.isOpened = action.payload;
+    },
+    changeOpenAdmin: (state) => {
+      state.isOpenAdmin = !state.isOpened;
+    },
+    switchOpenAdmin: (state, action: PayloadAction<boolean>) => {
+      state.isOpenAdmin = action.payload;
     },
   },
 });
@@ -120,7 +131,8 @@ export const store = configureStore({
 });
 
 export const { toggleFavorite, removeFromFavorites } = favoritesSlice.actions;
-export const { switchOpen } = burgerSlice.actions;
+export const { switchOpen, changeOpen, switchOpenAdmin, changeOpenAdmin } =
+  burgerSlice.actions;
 export const {
   addItemToCart,
   deleteItemFromCart,
