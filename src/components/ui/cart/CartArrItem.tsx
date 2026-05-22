@@ -45,13 +45,7 @@ export default function CartArrItem(props: CartArrP) {
       <div className="w-1/5 flex items-start justify-end">
         <div className="flex flex-col items-end justify-between h-full w-40">
           <CatalogCounter amount={props.item.amount} acc={props.item} />
-          {/* <Link
-            href={baterryPath + "/" + props.item.id}
-            className="text-neutral-600 border border-neutral-300 px-4 py-1.5 rounded-xl
-                       hover:border-rose-400 hover:text-rose-500 hover:bg-rose-50 transition-all duration-200 text-sm font-medium"
-          >
-            Подробнее
-          </Link> */}
+
           <Link
             href={baterryPath + "/" + props.item.id}
             className="text-neutral-400 hover:text-rose-500 transition-colors duration-200 text-sm font-medium flex items-center gap-1"

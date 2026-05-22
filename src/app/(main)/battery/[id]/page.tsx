@@ -1,4 +1,5 @@
 import { ApiProvider } from "@/api/api-provider";
+import NoBattery from "@/components/ui/battery/NoBattery";
 import { AccumType } from "@/types/AccumType";
 
 const api = new ApiProvider();
@@ -12,5 +13,5 @@ export default async function Battery({ params }: { params: { id: string } }) {
 
   const battery: AccumType = await api.getDataById(url, id);
 
-  return <>{battery.id}</>;
+  return <>{battery ? <p>{battery.id}</p> : <NoBattery />}</>;
 }
