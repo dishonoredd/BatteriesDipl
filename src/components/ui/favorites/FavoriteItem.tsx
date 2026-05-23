@@ -37,8 +37,10 @@ export default function FavoriteItem(props: FavItemP) {
   return (
     <li
       key={props.item.id}
-      className="bg-white p-5 rounded-4xl shadow-lg duration-100 hover:bg-gray-50"
+      className="bg-white p-5 pt-3 rounded-4xl shadow-lg duration-100 hover:bg-gray-50 hover:shadow-xl"
     >
+      <p className="text-sm pb-3 font-bold">{props.item.brand}</p>
+
       <div className="duration-100 hover:text-green-500">
         <Link
           href={batteryPath + "/" + props.item.id}
@@ -46,8 +48,8 @@ export default function FavoriteItem(props: FavItemP) {
         >
           <Image
             src={props.item.img}
-            alt=""
-            className=" object-cover duration-300 hover:scale-106 hover:brightness-90 "
+            alt={props.item.name}
+            className=" object-cover duration-300 hover:scale-103 hover:brightness-90 "
             fill
           />
         </Link>

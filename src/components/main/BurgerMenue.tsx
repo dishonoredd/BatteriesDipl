@@ -64,7 +64,7 @@ export default function BurgerMenue() {
               <Link
                 onClick={() => switchState(false)}
                 href={item.href}
-                className="text-white text-2xl"
+                className="text-white text-xl"
               >
                 {item.title}
               </Link>

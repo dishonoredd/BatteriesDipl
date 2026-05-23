@@ -32,7 +32,7 @@ export default function CartActiveBtns(props: CartBProps) {
   }
 
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1   max-sm:items-center max-sm:justify-center">
       <button
         onClick={() => togleFavourites(props.acc)}
         className={`${pressed ? "bg-red-100 hover:bg-red-100" : "bg-gray-200 hover:bg-gray-300"} h-9 w-9 flex items-center justify-center  rounded-xl

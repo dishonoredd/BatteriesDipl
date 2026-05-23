@@ -6,9 +6,9 @@ import CatalogFavIcon from "./CatalogFavIcon";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function CatalogSync() {
+export default function CatalogCli() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 12;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -29,7 +29,7 @@ export default function CatalogSync() {
   };
   return (
     <>
-      <div className=" max-w-400 mx-auto py-16 flex items-center justify-between">
+      <div className=" max-w-400 mx-auto mb-16 flex items-center justify-between">
         <h2 className="font-semibold text-2xl text-[#222]">
           Каталог аккумуляторов
         </h2>
@@ -76,18 +76,18 @@ export default function CatalogSync() {
         </div>
       </div>
 
-      <ul className=" max-w-400 mx-auto grid grid-cols-5 gap-12">
+      <ul className=" max-w-400 mx-auto grid grid-cols-6 gap-6 ">
         {currentItems.map((accum) => (
           <li
             key={accum.id}
-            className="h-full flex flex-col p-2 shadow-md rounded-2xl bg-white "
+            className="h-full flex flex-col p-2 shadow-md rounded-2xl bg-white duration-100 hover:bg-gray-100 hover:shadow-lg"
           >
-            <div className="relative w-full h-50">
+            <div className="relative w-full h-54">
               <Image
                 src={accum.img}
-                alt="Товар 1"
+                alt={accum.name}
                 fill
-                className="w-full h-50 rounded-md"
+                className=" rounded-md"
               />
               <CatalogFavIcon acc={accum} />
             </div>

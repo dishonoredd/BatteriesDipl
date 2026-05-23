@@ -22,30 +22,34 @@ export default function CatalogActiveBtns(props: CatalogActiveBtnsProps) {
   });
 
   return (
-    <section className=" rounded-b-lg w-full min-h-50 py-5 px-2 flex flex-col justify-start grow">
-      <div className="flex items-center justify-between">
-        <span className="px-3 py-1 bg-green-100 text-green-500 text-sm rounded-xl font-medium">
+    <div className="w-full pt-1 flex flex-col">
+      <div className="flex items-center justify-between gap-1">
+        <span className="px-1.5 py-0.5 bg-green-100 text-green-600 text-[10px] rounded-md font-medium">
           В наличии
         </span>
         <Link
           href={batteryPath + "/" + props.accum.id}
-          className="text-neutral-600 border border-neutral-300 px-3 py-1 rounded-xl hover:border-emerald-400 hover:text-emerald-500 hover:bg-emerald-50 transition-all duration-200 text-sm font-medium"
+          className="text-gray-500 border border-gray-300 px-1.5 py-0.5 rounded-md hover:border-emerald-400 hover:text-emerald-500 hover:bg-emerald-50 transition-all duration-200 text-[10px] font-medium"
         >
           Подробнее
         </Link>
       </div>
-      <p className="text-md py-6">{props.accum.name}</p>
 
-      <div className="h-full flex justify-between items-end">
-        <p className="text-xl font-bold text-[#222]">
+      <p className="text-xs font-semibold text-gray-800 mt-1 truncate">
+        {props.accum.brand}
+      </p>
+      <p className="text-[11px] text-gray-600 truncate">{props.accum.name}</p>
+
+      <div className="flex items-center justify-between mt-1">
+        <p className="text-sm font-bold text-neutral-800">
           {props.accum.price.toLocaleString("ru-RU")} ₽
-        </p>{" "}
+        </p>
         {itemAmount ? (
           <CatalogCounter amount={itemAmount} acc={props.accum} />
         ) : (
           <CatalogProductBtn acc={props.accum} />
         )}
       </div>
-    </section>
+    </div>
   );
 }

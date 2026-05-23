@@ -43,8 +43,8 @@ export default function CatalogCounter(props: CounterProps) {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="9"
+          height="9"
           viewBox="0 0 20 20"
         >
           <line
@@ -58,7 +58,7 @@ export default function CatalogCounter(props: CounterProps) {
           />
         </svg>
       </button>
-      <p className="text-md text-[#222]">{props.amount}</p>
+      <p className="text-[12px] text-[#222]">{props.amount}</p>
       <button
         onClick={() => addAccToCart(props.acc)}
         className="flex items-center justify-center border-[#333] rounded-xl bg-gray-200 text-[#222] w-9 h-9 font-medium duration-150
@@ -66,8 +66,8 @@ export default function CatalogCounter(props: CounterProps) {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="9"
+          height="9"
           viewBox="0 0 20 20"
         >
           <line

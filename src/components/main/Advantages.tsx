@@ -2,12 +2,12 @@ import Image from "next/image";
 
 const listItems: string[] = [
   "Аккумуляторы на любые авто",
-  "Обмен строго на новый",
-  "Скидка на сдачу старого аккумулятора до 4000 рублей",
+  "Обмен старого на новый",
   "Цены ниже рыночных",
   "Бесплатная установка",
   "Бесплатное обслуживание",
   "Гарантия до 5 лет",
+  "Аккумуляторы на любой транспорт",
 ];
 
 export default function Advantages() {
@@ -33,7 +33,7 @@ export default function Advantages() {
             {listItems.map((li) => (
               <li
                 key={li}
-                className="flex items-start gap-3 p-3 rounded-lg duration-100 hover:bg-neutral-800"
+                className="flex items-center gap-3 p-3 rounded-lg duration-100 hover:bg-neutral-800"
               >
                 <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center shrink-0 mt-0.5">
                   <svg

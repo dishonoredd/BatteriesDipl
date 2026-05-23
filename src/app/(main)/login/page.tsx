@@ -24,7 +24,7 @@ export default function LogInForm() {
   const passwordError = form.formState.errors.password;
 
   return (
-    <div className="min-h-[calc(100vh-100px)] flex items-center justify-center bg-gray-50">
+    <div className="min-h-[calc(100vh-70px)] flex items-center justify-center bg-gray-50">
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="w-full max-w-md bg-white rounded-lg shadow-sm border border-gray-200 p-8"
