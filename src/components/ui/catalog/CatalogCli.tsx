@@ -5,10 +5,12 @@ import CatalogActiveBtns from "./CatalogActiveBtns";
 import CatalogFavIcon from "./CatalogFavIcon";
 import Image from "next/image";
 import { useState } from "react";
+import { useResponsiveItemsPerPage } from "@/hooks/useItemsPerPage";
 
 export default function CatalogCli() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+
+  const itemsPerPage = useResponsiveItemsPerPage();
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -27,21 +29,29 @@ export default function CatalogCli() {
       setCurrentPage(currentPage - 1);
     }
   };
+
   return (
     <>
-      <div className=" max-w-400 mx-auto mb-16 flex items-center justify-between">
-        <h2 className="font-semibold text-2xl text-[#222]">
+      <div className="max-w-400 mx-auto mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+        <h2 className="font-semibold text-xl sm:text-2xl text-[#222] text-center sm:text-left">
           Каталог аккумуляторов
         </h2>
-        <div className="flex items-center justify-center gap-5">
+
+        <div className="flex items-center justify-center gap-3 sm:gap-5">
           <button
             onClick={() => prevPage()}
-            className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center duration-100 hover:bg-gray-300"
+            disabled={currentPage === 1}
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center duration-100 
+              ${
+                currentPage === 1
+                  ? "bg-gray-100 cursor-not-allowed opacity-50"
+                  : "bg-gray-200 hover:bg-gray-300"
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -52,17 +62,25 @@ export default function CatalogCli() {
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
-          <span>
+
+          <span className="text-sm sm:text-base">
             {currentPage} из {totalPages}
           </span>
+
           <button
             onClick={() => nextPage()}
-            className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center duration-100 hover:bg-gray-300"
+            disabled={currentPage === totalPages}
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center duration-100 
+              ${
+                currentPage === totalPages
+                  ? "bg-gray-100 cursor-not-allowed opacity-50"
+                  : "bg-gray-200 hover:bg-gray-300"
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -76,18 +94,18 @@ export default function CatalogCli() {
         </div>
       </div>
 
-      <ul className=" max-w-400 mx-auto grid grid-cols-6 gap-6 ">
+      <ul className="max-w-400 mx-auto px-4 sm:px-6 grid max-sm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-6">
         {currentItems.map((accum) => (
           <li
             key={accum.id}
             className="h-full flex flex-col p-2 shadow-md rounded-2xl bg-white duration-100 hover:bg-gray-100 hover:shadow-lg"
           >
-            <div className="relative w-full h-54">
+            <div className="relative w-full max-[445]:h-30 max-[639]:h-50  sm:h-48 md:h-52 lg:h-48 xl:h-54">
               <Image
                 src={accum.img}
                 alt={accum.name}
                 fill
-                className=" rounded-md"
+                className="rounded-md object-cover"
               />
               <CatalogFavIcon acc={accum} />
             </div>

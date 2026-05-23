@@ -123,8 +123,8 @@ export default function CatalogSelection() {
   ].filter(Boolean).length;
 
   return (
-    <section className="px-4 min-h-screen">
-      <div className="bg-gray-100 p-6 rounded-2xl mb-8 max-w-400 mx-auto">
+    <section className="min-h-screen">
+      <div className="bg-gray-100 sm:p-6 max-sm:p-2 rounded-2xl mb-8 max-w-400 mx-auto">
         <div className="bg-white p-6 rounded-2xl mb-8 max-w-400 mx-auto">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-xl text-[#222]">Фильтры</h3>

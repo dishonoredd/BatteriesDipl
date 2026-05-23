@@ -13,13 +13,13 @@ const listItems: string[] = [
 export default function Advantages() {
   return (
     <section className="bg-neutral-900">
-      <div className="max-w-7xl mx-auto px-4 py-16 lg:py-24">
-        <h2 className="text-3xl lg:text-4xl font-semibold text-white text-center mb-12">
+      <div className="max-w-7xl mx-auto px-4 pb-16 ">
+        <h2 className="text-xl p-8 lg:p-16 xl:text-2xl text-white text-center">
           Наши преимущества
         </h2>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 p-2">
             <Image
               src="/akb.jpg"
               alt="Автомобильный аккумулятор"
@@ -50,7 +50,7 @@ export default function Advantages() {
                     />
                   </svg>
                 </div>
-                <span className="text-gray-300 text-base lg:text-lg">{li}</span>
+                <span className="text-gray-300 text-base xl:text-lg">{li}</span>
               </li>
             ))}
           </ul>

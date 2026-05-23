@@ -2,7 +2,7 @@ import { pathRouter } from "@/routes/router";
 import Link from "next/link";
 
 export default function CartNoItems() {
-  const homePath = pathRouter.HOME;
+  const catalogPath = pathRouter.CATALOG_SELECTION;
   const favoritesPath = pathRouter.FAVORITES;
 
   return (
@@ -31,7 +31,7 @@ export default function CartNoItems() {
         <div className="max-w-md mx-auto mt-12">
           <div className="flex gap-4 justify-center">
             <Link
-              href={homePath}
+              href={catalogPath}
               className="text-neutral-400 hover:text-rose-500 transition-colors duration-200 text-lg  flex items-center gap-2 group"
             >
               В каталог

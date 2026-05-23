@@ -7,22 +7,22 @@ import Link from "next/link";
 type Navigation = {
   href: string;
   title: string;
-  id: string;
+  id: number;
 };
 
-const homePath = pathRouter.HOME;
+const catalogPath = pathRouter.CATALOG_SELECTION;
 const cartPath = pathRouter.CART;
 const favPath = pathRouter.FAVORITES;
 const regPath = pathRouter.REGISTRATION;
 const loginPath = pathRouter.LOGIN;
 
 const navigationArr: Navigation[] = [
-  { href: homePath, title: "Аккумуляторы", id: crypto.randomUUID() },
-  { href: homePath, title: "Контакты", id: crypto.randomUUID() },
-  { href: cartPath, title: "Корзина", id: crypto.randomUUID() },
-  { href: favPath, title: "Избранное", id: crypto.randomUUID() },
-  { href: loginPath, title: "Вход", id: crypto.randomUUID() },
-  { href: regPath, title: "Регестрация", id: crypto.randomUUID() },
+  { href: catalogPath, title: "Каталог", id: 1 },
+  { href: "/", title: "Контакты", id: 2 },
+  { href: cartPath, title: "Корзина", id: 3 },
+  { href: favPath, title: "Избранное", id: 4 },
+  { href: loginPath, title: "Вход", id: 5 },
+  { href: regPath, title: "Регестрация", id: 6 },
 ];
 
 export default function BurgerMenue() {
@@ -38,7 +38,7 @@ export default function BurgerMenue() {
       className={`w-full h-screen flex -translate-x-full fixed top-0 z-10
         transition duration-400 ${isOpen ? "translate-x-0" : ""}`}
     >
-      <div className="bg-neutral-900 w-1/3 border-r border-r-[#222] flex items-center justify-center relative">
+      <div className="bg-neutral-900 max-sm:w-9/10 sm:w-6/10 lg:w-1/3  border-r border-r-[#222] flex items-center justify-center relative">
         <button
           onClick={() => switchState(false)}
           className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors group"

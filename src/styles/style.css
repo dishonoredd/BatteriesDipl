@@ -29,10 +29,14 @@ input:focus {
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/accum.jpg");
   background-size: cover;
   background-position: center;
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 76px);
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+@media (min-width: 640px) {
+  .bg-mainpage {
+    background-attachment: fixed;
+  }
 }
 
 .h-skeleton-battyry {

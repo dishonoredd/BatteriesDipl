@@ -6,7 +6,7 @@ export default function FindBattery() {
 
   return (
     <>
-      <div className="max-w-400 mx-auto py-16">
+      <div className="max-w-400 mx-auto py-16 px-4 sm:px-6 md:px-8">
         <div className="bg-white rounded-2xl shadow-md p-12 text-center">
           <div className="mb-6">
             <svg
@@ -36,7 +36,7 @@ export default function FindBattery() {
 
           <Link
             href={SELECTION_PATH}
-            className="inline-flex items-center justify-center px-8 py-3 bg-neutral-800 text-white font-medium rounded-xl hover:bg-neutral-950 transition duration-200 shadow-md hover:shadow-lg gap-2"
+            className="max-sm:text-sm sm:text-lg inline-flex items-center justify-center px-8 py-3 bg-neutral-800 text-white font-medium rounded-xl hover:bg-neutral-950 transition duration-200 shadow-md hover:shadow-lg gap-2"
           >
             <span>Подобрать аккумулятор</span>
             <svg
