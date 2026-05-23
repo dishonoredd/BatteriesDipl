@@ -17,8 +17,8 @@ export default function CatalogProductBtn(props: CatalogBtnProps) {
   return (
     <button
       onClick={() => addAccToCart(props.acc)}
-      className="  border-[#333] rounded-xl bg-[#333] text-white py-2 px-4 max-sm:text-[10px]
-       sm:text-[12px] font-medium duration-150 hover:bg-[#212121]"
+      className="rounded-xl bg-[#333] text-white py-2 px-4 max-sm:text-[10px]
+       sm:text-[12px] lg:font-medium duration-150 hover:bg-[#212121]"
     >
       В корзину
     </button>

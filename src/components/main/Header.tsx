@@ -12,7 +12,7 @@ export default function Header() {
 
         <Link
           href={homePath}
-          className="text-base sm:text-sm md:text-xl font-medium text-[#222]"
+          className="text-base sm:text-sm md:text-lg text-neutral-700 hover:text-neutral-800"
         >
           Аккумуляторы
         </Link>

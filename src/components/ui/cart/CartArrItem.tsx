@@ -63,7 +63,7 @@ export default function CartArrItem(props: CartArrP) {
 
       <div className="flex flex-row sm:flex-col justify-between max-sm:flex-col sm:justify-start items-center sm:items-end gap-4 sm:gap-2 mt-4 sm:mt-0 pt-4 sm:pt-0  ">
         <div className="text-center sm:text-right flex-1 sm:flex-none">
-          <p className="text-rose-400 text-lg sm:text-xl font-bold">
+          <p className="text-neutral-700 text-lg sm:text-xl font-bold">
             {props.item.price.toLocaleString("ru-RU")} ₽
           </p>
           <p className="text-neutral-500 text-sm font-semibold">за шт.</p>
@@ -73,7 +73,7 @@ export default function CartArrItem(props: CartArrP) {
           <CatalogCounter amount={props.item.amount} acc={props.item} />
           <Link
             href={baterryPath + "/" + props.item.id}
-            className="text-neutral-400 hover:text-rose-500 transition-colors duration-200 text-sm font-medium flex items-center gap-1"
+            className="text-neutral-400 hover:text-blue-600 transition-colors duration-200 text-sm font-medium flex items-center gap-1"
           >
             Подробнее
           </Link>

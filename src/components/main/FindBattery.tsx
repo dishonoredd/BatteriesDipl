@@ -36,7 +36,7 @@ export default function FindBattery() {
 
           <Link
             href={SELECTION_PATH}
-            className="max-sm:text-sm sm:text-lg inline-flex items-center justify-center px-8 py-3 bg-neutral-800 text-white font-medium rounded-xl hover:bg-neutral-950 transition duration-200 shadow-md hover:shadow-lg gap-2"
+            className="max-sm:text-lg sm:text-lg inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white  rounded-xl hover:bg-blue-700 transition duration-200 shadow-md hover:shadow-lg gap-2"
           >
             <span>Подобрать аккумулятор</span>
             <svg
