@@ -36,13 +36,10 @@ export default function Cart() {
             </p>
 
             <button
-              className="w-full sm:w-auto bg-neutral-800 hover:bg-neutral-900 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl 
-              text-sm sm:text-base font-medium flex items-center justify-center gap-2 group shadow-md hover:shadow-lg transition-all duration-200"
+              className="w-full max-sm:text-white max-sm:bg-neutral-800 max-sm:hover:bg-neutral-900 max-sm:hover:text-white max-sm:decoration-0 sm:w-auto  text-blue-600 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl 
+              text-sm sm:text-base font-medium flex items-center justify-center gap-2 group underline hover:text-blue-700 transition-all duration-200"
             >
               Перейти к оформлению
-              <span className="text-base sm:text-xl group-hover:translate-x-1 transition-transform duration-200">
-                →
-              </span>
             </button>
           </div>
 

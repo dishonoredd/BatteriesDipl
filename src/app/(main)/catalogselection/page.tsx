@@ -144,7 +144,7 @@ export default function CatalogSelection() {
               placeholder="Поиск по названию"
               value={tempSearchQuery}
               onChange={(e) => setTempSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+              className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-800 focus:border-gray-800 outline-none transition"
             />
           </div>
 
@@ -181,7 +181,7 @@ export default function CatalogSelection() {
               placeholder="Емкость (Ач)"
               value={tempCapacity}
               onChange={(e) => setTempCapacity(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+              className="px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-800 focus:border-gray-800 outline-none transition"
             />
             <Select
               allowClear

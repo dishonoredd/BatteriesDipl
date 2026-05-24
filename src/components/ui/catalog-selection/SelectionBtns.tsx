@@ -14,7 +14,7 @@ export default function SelectionBtns(props: SelectionBtnsP) {
       </button>
       <button
         onClick={props.apply}
-        className="px-6 max-sm:text-[14px] max-sm:px-1 max-sm:flex-1 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition duration-200 shadow-md hover:shadow-lg"
+        className="px-6 max-sm:text-[14px] max-sm:px-1 max-sm:flex-1 py-2 bg-gray-800 text-white rounded-xl hover:bg-gray-900 transition duration-200 shadow-md hover:shadow-lg"
       >
         Применить фильтры
       </button>
