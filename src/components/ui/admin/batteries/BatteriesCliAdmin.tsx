@@ -241,8 +241,8 @@ export default function BatteriesCliAdmin(props: AdminBatteryP) {
                 placeholder="Сортировка по цене"
                 className="w-full"
                 options={[
-                  { label: "💰 Цена: по возрастанию", value: "asc" },
-                  { label: "💰 Цена: по убыванию", value: "desc" },
+                  { label: "Цена: по возрастанию", value: "asc" },
+                  { label: "Цена: по убыванию", value: "desc" },
                 ]}
               />
             </div>

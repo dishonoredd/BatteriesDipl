@@ -169,10 +169,12 @@ export default function AddBatteryAdmin() {
                 </p>
               )}
             </div>
+
             <div className="mt-4">
               <label className="block text-sm font-medium text-gray-700 mb-1.5">
                 Ёмкость (Ач)
               </label>
+
               <input
                 type="text"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-800 focus:border-gray-800 outline-none transition"
