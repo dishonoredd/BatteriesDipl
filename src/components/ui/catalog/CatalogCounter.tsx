@@ -35,10 +35,10 @@ export default function CatalogCounter(props: CounterProps) {
   }
 
   return (
-    <div className="flex justify-between items-center max-sm:gap-2 sm:gap-4 bg-gray-200 rounded-xl">
+    <div className="flex justify-between items-center max-sm:gap-2 xl:gap-4 bg-gray-200 rounded-xl">
       <button
         onClick={() => deleteOne(props.acc.id)}
-        className="flex items-center justify-center border-[#333] rounded-xl bg-gray-200 text-[#222] max-sm:h-7 max-sm:w-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 font-medium duration-150
+        className="flex items-center justify-center border-[#333] rounded-xl bg-gray-200 text-[#222] max-sm:h-7 max-sm:w-7 sm:w-8 sm:h-8 xl:w-9 xl:h-9 font-medium duration-150
         hover:bg-gray-300"
       >
         <svg
@@ -61,7 +61,7 @@ export default function CatalogCounter(props: CounterProps) {
       <p className="text-[12px] text-[#222]">{props.amount}</p>
       <button
         onClick={() => addAccToCart(props.acc)}
-        className="flex items-center justify-center border-[#333] rounded-xl bg-gray-200 text-[#222] max-sm:h-7 max-sm:w-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 font-medium duration-150
+        className="flex items-center justify-center border-[#333] rounded-xl bg-gray-200 text-[#222] max-sm:h-7 max-sm:w-7 sm:w-8 sm:h-8 xl:w-9 xl:h-9 font-medium duration-150
         hover:bg-gray-300"
       >
         <svg

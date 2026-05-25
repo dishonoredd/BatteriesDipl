@@ -222,9 +222,7 @@ export default function CatalogSelection() {
 
           <SelectionBtns apply={applyFilters} reset={resetFilters} />
         </div>
-
         <SelectionStats filteredItemsLength={filteredAndSortedAccums.length} />
-
         {filteredAndSortedAccums.length === 0 ? (
           <div className="text-center py-16 bg-gray-50 rounded-2xl">
             <p className="text-gray-500">По вашему запросу ничего не найдено</p>

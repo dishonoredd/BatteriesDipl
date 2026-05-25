@@ -3,20 +3,49 @@ import { navigationArr } from "./navigation-list";
 
 export default function AdminPanel() {
   return (
-    <div className="min-h-[calc(100vh-76px)] flex items-center justify-center flex-col gap-20">
-      <p className="font-semibold text-2xl">Админ-панель</p>
-      <ul className="max-w-400 w-6xl min-h-100 mx-auto grid grid-cols-2 gap-10">
+    <div className="min-h-[calc(100vh-76px)] flex items-center justify-center flex-col gap-8 sm:gap-12 md:gap-16 lg:gap-20 px-4 sm:px-6 py-8 sm:py-12">
+      <p className="font-bold text-2xl sm:text-3xl md:text-4xl text-gray-800 bg-linear-to-r from-gray-700 to-gray-900 bg-clip-text ">
+        Админ-панель
+      </p>
+
+      <ul className="max-w-7xl w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
         {navigationArr.map((el) => (
           <li
             key={el.id}
-            className=" gap-10  rounded-2xl  shadow-lg bg-gray-50
-            duration-150 hover:bg-gray-100 hover:shadow-xl"
+            className="group relative overflow-hidden rounded-2xl shadow-lg bg-white 
+                       duration-300 hover:shadow-2xl hover:-translate-y-1"
           >
+            {/* Декоративный градиент сверху */}
+            <div className="absolute inset-0 bg-linear-to-br from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
             <Link
               href={el.href}
-              className="text-neutral-900 flex items-center justify-center text-xl w-full h-full"
+              className="relative flex items-center justify-center text-center
+                         text-base sm:text-lg md:text-xl font-semibold
+                         text-gray-700 group-hover:text-gray-900
+                         w-full h-full min-h-25 sm:min-h-30 md:min-h-35
+                         px-4 py-6 sm:py-8
+                         transition-all duration-300"
             >
-              {el.title}
+              <span className="relative z-10">{el.title}</span>
+
+              {/* Иконка стрелки при ховере */}
+              <span className="absolute right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-blue-500"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
             </Link>
           </li>
         ))}

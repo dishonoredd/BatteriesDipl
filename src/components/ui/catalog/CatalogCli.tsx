@@ -94,13 +94,13 @@ export default function CatalogCli() {
         </div>
       </div>
 
-      <ul className="max-w-400 mx-auto px-4 sm:px-6 grid max-sm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-6">
+      <ul className="max-w-400 mx-auto px-4 sm:px-6 grid max-sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-6">
         {currentItems.map((accum) => (
           <li
             key={accum.id}
             className="h-full flex flex-col p-2 shadow-md rounded-2xl bg-white duration-100 hover:bg-gray-100 hover:shadow-lg"
           >
-            <div className="relative w-full max-[445]:h-30 max-[639]:h-50  sm:h-48 md:h-52 lg:h-48 xl:h-54">
+            <div className="relative w-full max-[445]:h-32 max-[639]:h-50  sm:h-38 md:h-52 lg:h-48 xl:h-54">
               <Image
                 src={accum.img}
                 alt={accum.name}
