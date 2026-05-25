@@ -60,7 +60,7 @@ export default function FavoriteItem(props: FavItemP) {
 
         <Link
           href={batteryPath + "/" + props.item.id}
-          className="py-2 sm:py-3 md:py-5 block text-sm sm:text-base line-clamp-2 min-h-[3rem] sm:min-h-[4rem]"
+          className="py-2 sm:py-3 md:py-5 block text-sm sm:text-base line-clamp-2 min-h-12 sm:min-h-16"
         >
           {props.item.name}
         </Link>
