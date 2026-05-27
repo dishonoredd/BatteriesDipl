@@ -63,11 +63,18 @@ export default function AddBatteryAdmin() {
   const errorTechnology = form.formState.errors.technology;
   const errorSizeType = form.formState.errors.sizeType;
 
+  function goBack() {
+    window.history.back();
+  }
+
   return (
     <>
       <div className="max-w-220 mx-auto my-10 max-sm:p-6 sm:p-2">
         <div className="">
-          <button className="text-gray-500 hover:text-gray-700 mb-3 flex items-center text-sm">
+          <button
+            onClick={() => goBack()}
+            className="text-gray-500 hover:text-gray-700 mb-3 flex items-center text-sm"
+          >
             Вернуться назад
           </button>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">

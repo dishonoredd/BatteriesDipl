@@ -53,9 +53,6 @@ export default function Favorites() {
           >
             <p className="text-xl sm:text-2xl font-semibold text-gray-900">
               Избранное
-              <span className="text-sm font-normal text-gray-500 ml-2">
-                ({favorites.length} товаров)
-              </span>
             </p>
 
             <Select
