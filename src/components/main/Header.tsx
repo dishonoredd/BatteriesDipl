@@ -14,7 +14,7 @@ export default function Header() {
           href={homePath}
           className="text-base sm:text-sm md:text-lg text-neutral-700 hover:text-neutral-800"
         >
-          Аккумуляторы
+          Название сайта
         </Link>
       </div>
     </header>
