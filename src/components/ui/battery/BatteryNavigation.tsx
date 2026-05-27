@@ -11,8 +11,6 @@ function goBack() {
   window.history.back();
 }
 
-const HOME = pathRouter.HOME;
-const CATALOG = pathRouter.CATALOG_SELECTION;
 const CART = pathRouter.CART;
 const FAVS = pathRouter.FAVORITES;
 
@@ -22,14 +20,6 @@ export default function BatteryNavigation(props: BatteryNavigationP) {
       <button onClick={() => goBack()} className="hover:text-gray-700">
         Назад
       </button>
-      <span>/</span>
-      <Link href={HOME} className="hover:text-gray-700">
-        Главная
-      </Link>
-      <span>/</span>
-      <Link href={CATALOG} className="hover:text-gray-700">
-        Каталог
-      </Link>
       <span>/</span>
       <Link href={CART} className="hover:text-gray-700">
         Корзина

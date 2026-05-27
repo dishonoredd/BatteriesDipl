@@ -48,7 +48,7 @@ export default function CartActiveBtns(props: CartBProps) {
       <button
         onClick={() => deleteFromCart(props.acc.id)}
         className="h-9 w-9 flex items-center justify-center bg-gray-200 rounded-xl
-                        duration-150 hover:bg-gray-300"
+        duration-150 hover:bg-gray-300"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
           <path

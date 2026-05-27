@@ -96,12 +96,12 @@ export default function FavoriteItem(props: FavItemP) {
         <button
           onClick={() => removeFromFav(props.item.id)}
           className="h-9 w-9 sm:h-10 sm:w-10 flex items-center justify-center 
-                     bg-gray-200 rounded-lg sm:rounded-xl duration-150 hover:bg-gray-300 shrink-0"
+          bg-gray-200 rounded-lg sm:rounded-xl duration-150 hover:bg-gray-300 shrink-0"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
+            width="16"
+            height="16"
             className="sm:w-4 sm:h-4"
           >
             <path
