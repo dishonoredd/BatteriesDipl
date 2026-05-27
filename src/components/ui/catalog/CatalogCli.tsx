@@ -34,7 +34,7 @@ export default function CatalogCli() {
     <>
       <div className="max-w-400 mx-auto mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
         <h2 className="font-semibold text-xl sm:text-2xl text-[#222] text-center sm:text-left">
-          Каталог аккумуляторов
+          Список аккумуляторов
         </h2>
 
         <div className="flex items-center justify-center gap-3 sm:gap-5">
