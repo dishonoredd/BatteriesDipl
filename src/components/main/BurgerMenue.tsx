@@ -18,11 +18,10 @@ const loginPath = pathRouter.LOGIN;
 
 const navigationArr: Navigation[] = [
   { href: catalogPath, title: "Каталог", id: 1 },
-  { href: "/", title: "Контакты", id: 2 },
-  { href: cartPath, title: "Корзина", id: 3 },
-  { href: favPath, title: "Избранное", id: 4 },
-  { href: loginPath, title: "Вход", id: 5 },
-  { href: regPath, title: "Регестрация", id: 6 },
+  { href: cartPath, title: "Корзина", id: 2 },
+  { href: favPath, title: "Избранное", id: 3 },
+  { href: loginPath, title: "Вход", id: 4 },
+  { href: regPath, title: "Регестрация", id: 5 },
 ];
 
 export default function BurgerMenue() {
