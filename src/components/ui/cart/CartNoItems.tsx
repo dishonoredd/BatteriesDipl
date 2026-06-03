@@ -32,13 +32,13 @@ export default function CartNoItems() {
           <div className="flex gap-4 justify-center">
             <Link
               href={catalogPath}
-              className="text-neutral-400 hover:text-rose-500 transition-colors duration-200 text-lg  flex items-center gap-2 group"
+              className="text-neutral-400 hover:text-blue-500 transition-colors duration-200 text-lg  flex items-center gap-2 group"
             >
               В каталог
             </Link>
             <Link
               href={favoritesPath}
-              className="text-neutral-400 hover:text-rose-500 transition-colors duration-200 text-lg  flex items-center gap-2 group"
+              className="text-neutral-400 hover:text-blue-500 transition-colors duration-200 text-lg  flex items-center gap-2 group"
             >
               Избранное
             </Link>
