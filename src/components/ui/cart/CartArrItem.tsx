@@ -22,6 +22,7 @@ export default function CartArrItem(props: CartArrP) {
           src={props.item.img}
           alt={props.item.name}
           fill
+          loading="lazy"
           className="object-cover"
           sizes="(max-width: 640px) 200px, 184px"
         />
@@ -39,13 +40,13 @@ export default function CartArrItem(props: CartArrP) {
             <CartActiveBtns acc={props.item} />
           </div>
           <div className="flex flex-wrap gap-2 mt-3 justify-center sm:justify-start">
-            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-lg font-medium whitespace-nowrap">
+            <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-medium whitespace-nowrap">
               {props.item.capacity} Ач
             </span>
-            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-lg font-medium whitespace-nowrap">
+            <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-medium whitespace-nowrap">
               {props.item.voltage} В
             </span>
-            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-lg font-medium whitespace-nowrap">
+            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-lg font-medium whitespace-nowrap">
               {props.item.polarity}
             </span>
             <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-lg font-medium whitespace-nowrap">
@@ -54,7 +55,7 @@ export default function CartArrItem(props: CartArrP) {
             <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-lg font-medium whitespace-nowrap">
               {props.item.technology}
             </span>
-            <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-medium whitespace-nowrap">
+            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-lg font-medium whitespace-nowrap">
               {props.item.sizeType}
             </span>
           </div>

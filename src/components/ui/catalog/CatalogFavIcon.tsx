@@ -26,6 +26,7 @@ export default function CatalogFavIcon(props: FavP) {
   return (
     <button
       onClick={() => togleFavourites(props.acc)}
+      aria-label="Добавить в избранное"
       className={`absolute top-3 right-3 p-2 backdrop-blur-sm
     rounded-full transition-all duration-200 hover:scale-110
      hover:bg-white ${pressed ? "bg-red-100" : "bg-gray-100"}`}

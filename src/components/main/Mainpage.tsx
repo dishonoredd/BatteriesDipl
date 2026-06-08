@@ -1,4 +1,4 @@
-export default function Mainpag() {
+export default function Mainpage() {
   return (
     <section className="bg-mainpage flex items-center justify-center text-center px-4 sm:px-6 md:px-8">
       <div className="max-w-4xl mx-auto">

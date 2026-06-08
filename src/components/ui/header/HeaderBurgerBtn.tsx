@@ -10,7 +10,11 @@ export default function HeaderBurgerBtn() {
   }
 
   return (
-    <button onClick={() => switchState()} className="burger-menu">
+    <button
+      onClick={() => switchState()}
+      className="burger-menu"
+      aria-label="Открыть меню"
+    >
       <div className="burger-line"></div>
     </button>
   );

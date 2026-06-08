@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 * {
+  font-display: swap;
   box-sizing: border-box;
 }
 
@@ -26,7 +27,7 @@ input:focus {
 
 .bg-mainpage {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/accum.jpg");
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/accum.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

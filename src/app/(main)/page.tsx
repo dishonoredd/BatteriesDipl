@@ -9,7 +9,6 @@ export default function App() {
       <Mainpage />
       <Advantages />
       <FindBattery />
-
       <Catalog />
     </>
   );

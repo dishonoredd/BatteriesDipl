@@ -54,6 +54,7 @@ export default function FavoriteItem(props: FavItemP) {
             alt={props.item.name}
             className="object-cover duration-300 hover:scale-103 hover:brightness-90 absolute inset-0"
             fill
+            loading="lazy"
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
         </Link>

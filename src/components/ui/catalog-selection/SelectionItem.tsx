@@ -15,6 +15,7 @@ export default function SelectionItem(props: SelectionItemP) {
           src={props.accum.img}
           alt={props.accum.name}
           fill
+          loading="lazy"
           className="object-contain p-2"
         />
         <div className="absolute top-1 right-1">

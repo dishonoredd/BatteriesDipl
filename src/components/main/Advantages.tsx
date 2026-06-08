@@ -21,11 +21,12 @@ export default function Advantages() {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
           <div className="lg:w-1/2 p-2">
             <Image
-              src="/akb.jpg"
+              src="/akb.webp"
               alt="Автомобильный аккумулятор"
               width={600}
               height={500}
               className="w-full h-auto object-cover rounded-lg"
+              loading="lazy"
             />
           </div>
 
@@ -35,7 +36,10 @@ export default function Advantages() {
                 key={li}
                 className="flex items-center gap-3 p-3 rounded-lg duration-100 hover:bg-neutral-800"
               >
-                <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center shrink-0 mt-0.5">
+                <div
+                  aria-label={li}
+                  className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center shrink-0 mt-0.5"
+                >
                   <svg
                     className="w-3 h-3 text-gray-400"
                     fill="none"

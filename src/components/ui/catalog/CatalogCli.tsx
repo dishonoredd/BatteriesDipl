@@ -1,11 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { accumlist } from "@/db/accumslist";
-import CatalogActiveBtns from "./CatalogActiveBtns";
-import CatalogFavIcon from "./CatalogFavIcon";
 import Image from "next/image";
 import { useState } from "react";
 import { useResponsiveItemsPerPage } from "@/hooks/useItemsPerPage";
+
+const DynamicActiveBtns = dynamic(() => import("./CatalogActiveBtns"));
+const DynamicFavIcon = dynamic(() => import("./CatalogFavIcon"));
 
 export default function CatalogCli() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -106,10 +108,11 @@ export default function CatalogCli() {
                 alt={accum.name}
                 fill
                 className="rounded-md object-cover"
+                loading="lazy"
               />
-              <CatalogFavIcon acc={accum} />
+              <DynamicFavIcon acc={accum} />
             </div>
-            <CatalogActiveBtns accum={{ ...accum, amount: 0 }} />
+            <DynamicActiveBtns accum={{ ...accum, amount: 0 }} />
           </li>
         ))}
       </ul>
