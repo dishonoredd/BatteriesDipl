@@ -1,13 +1,33 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { accumlist } from "@/db/accumslist";
 import { Select } from "antd";
 import SelectionBtns from "@/components/ui/catalog-selection/SelectionBtns";
 import SelectionStats from "@/components/ui/catalog-selection/SelectionStats";
 import SelectionItem from "@/components/ui/catalog-selection/SelectionItem";
+import {
+  loadCartFromStorage,
+  loadFavoritesFromStorage,
+  useAppDispatch,
+} from "@/typescript/redux/store";
+import SkeleetonCat from "@/components/ui/adds/SkeletonCat";
 
 export default function CatalogSelection() {
+  const dispatch = useAppDispatch();
+  const [mounted, setMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setMounted(true);
+    Promise.all([
+      dispatch(loadFavoritesFromStorage()),
+      dispatch(loadCartFromStorage()),
+    ]).finally(() => {
+      setIsLoading(false);
+    });
+  }, [dispatch]);
+
   const [tempSearchQuery, setTempSearchQuery] = useState("");
   const [tempBrand, setTempBrand] = useState("");
   const [tempVoltage, setTempVoltage] = useState("");
@@ -122,6 +142,14 @@ export default function CatalogSelection() {
     sortPrice,
   ].filter(Boolean).length;
 
+  // if (!mounted || isLoading) {
+  //   return (
+  //     <>
+  //       <SkeleetonEvery />
+  //     </>
+  //   );
+  // }
+
   return (
     <section className="min-h-screen">
       <div className="bg-gray-100 sm:p-6 max-sm:p-2 rounded-2xl mb-8 max-w-400 mx-auto">
@@ -223,25 +251,34 @@ export default function CatalogSelection() {
           <SelectionBtns apply={applyFilters} reset={resetFilters} />
         </div>
         <SelectionStats filteredItemsLength={filteredAndSortedAccums.length} />
-        {filteredAndSortedAccums.length === 0 ? (
-          <div className="text-center py-16 bg-gray-50 rounded-2xl">
-            <p className="text-gray-500">По вашему запросу ничего не найдено</p>
-            <button
-              onClick={resetFilters}
-              className="mt-4 text-blue-600 hover:text-blue-700 underline"
-            >
-              Сбросить фильтры
-            </button>
-          </div>
+        {!mounted || isLoading ? (
+          <SkeleetonCat></SkeleetonCat>
         ) : (
           <>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
-              {filteredAndSortedAccums.map((accum) => (
-                <SelectionItem key={accum.id} accum={accum} />
-              ))}
-            </ul>
+            {" "}
+            {filteredAndSortedAccums.length === 0 ? (
+              <div className="text-center py-16 bg-gray-50 rounded-2xl">
+                <p className="text-gray-500">
+                  По вашему запросу ничего не найдено
+                </p>
+                <button
+                  onClick={resetFilters}
+                  className="mt-4 text-blue-600 hover:text-blue-700 underline"
+                >
+                  Сбросить фильтры
+                </button>
+              </div>
+            ) : (
+              <>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
+                  {filteredAndSortedAccums.map((accum) => (
+                    <SelectionItem key={accum.id} accum={accum} />
+                  ))}
+                </ul>
+              </>
+            )}
           </>
-        )}
+        )}{" "}
       </div>
     </section>
   );

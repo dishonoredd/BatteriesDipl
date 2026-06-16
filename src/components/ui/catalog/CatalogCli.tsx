@@ -3,16 +3,36 @@
 import dynamic from "next/dynamic";
 import { accumlist } from "@/db/accumslist";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useResponsiveItemsPerPage } from "@/hooks/useItemsPerPage";
+import {
+  loadCartFromStorage,
+  loadFavoritesFromStorage,
+  useAppDispatch,
+} from "@/typescript/redux/store";
+import SkeleetonEvery from "../adds/SkeletonEvery";
 
 const DynamicActiveBtns = dynamic(() => import("./CatalogActiveBtns"));
 const DynamicFavIcon = dynamic(() => import("./CatalogFavIcon"));
 
 export default function CatalogCli() {
+  const [mounted, setMounted] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const dispatch = useAppDispatch();
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const itemsPerPage = useResponsiveItemsPerPage();
+
+  useEffect(() => {
+    setMounted(true);
+    Promise.all([
+      dispatch(loadFavoritesFromStorage()),
+      dispatch(loadCartFromStorage()),
+    ]).finally(() => {
+      setIsLoading(false);
+    });
+  }, [dispatch]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -31,6 +51,14 @@ export default function CatalogCli() {
       setCurrentPage(currentPage - 1);
     }
   };
+
+  if (!mounted || isLoading) {
+    return (
+      <>
+        <SkeleetonEvery />
+      </>
+    );
+  }
 
   return (
     <>
@@ -102,13 +130,14 @@ export default function CatalogCli() {
             key={accum.id}
             className="h-full flex flex-col p-2 shadow-md rounded-2xl bg-white duration-100 hover:bg-gray-100 hover:shadow-lg"
           >
-            <div className="relative w-full max-[445]:h-32 max-[639]:h-50  sm:h-38 md:h-52 lg:h-48 xl:h-54">
+            <div className="relative w-full max-[445]:h-32 max-[639]:h-50 sm:h-38 md:h-52 lg:h-48 xl:h-54">
               <Image
                 src={accum.img}
                 alt={accum.name}
                 fill
                 className="rounded-md object-cover"
                 loading="lazy"
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, (max-width: 1280px) 20vw, 16vw"
               />
               <DynamicFavIcon acc={accum} />
             </div>
