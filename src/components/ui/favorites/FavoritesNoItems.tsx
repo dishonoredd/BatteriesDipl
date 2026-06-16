@@ -24,10 +24,10 @@ export default function FavoriteNoItems() {
           />
         </svg>
 
-        <p className="text-2xl text-gray-400 mb-2">
+        <p className="text-2xl text-gray-400 mb-2 text-center">
           В избранном пока нет товаров
         </p>
-        <p className="text-gray-400 text-base">
+        <p className="text-gray-400 text-base text-center">
           Но это никогда не поздно исправить!
         </p>
 

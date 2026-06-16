@@ -23,8 +23,10 @@ export default function CartNoItems() {
           <circle cx="20" cy="21" r="1" />
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
         </svg>
-        <p className="text-2xl text-gray-400 mb-2">Ваша корзина пуста</p>
-        <p className="text-gray-400 text-base">
+        <p className="text-2xl text-gray-400 mb-2 text-center">
+          Ваша корзина пуста
+        </p>
+        <p className="text-gray-400 text-base text-center">
           Но это никогда не поздно исправить!
         </p>
 
