@@ -142,14 +142,6 @@ export default function CatalogSelection() {
     sortPrice,
   ].filter(Boolean).length;
 
-  // if (!mounted || isLoading) {
-  //   return (
-  //     <>
-  //       <SkeleetonEvery />
-  //     </>
-  //   );
-  // }
-
   return (
     <section className="min-h-screen">
       <div className="bg-gray-100 sm:p-6 max-sm:p-2 rounded-2xl mb-8 max-w-400 mx-auto">
