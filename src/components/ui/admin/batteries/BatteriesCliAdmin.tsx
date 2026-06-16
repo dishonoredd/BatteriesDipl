@@ -3,7 +3,7 @@
 import { AccumType } from "@/types/AccumType";
 import BatteryItemAdmin from "./BatteryItemAdmin";
 import { Select } from "antd";
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import BatteriesAmountAdmin from "./BatteriesAmountAdmin";
 import NoBatteriesAdmin from "./NoBatteriesAdmin";
 
@@ -49,7 +49,6 @@ export default function BatteriesCliAdmin(props: AdminBatteryP) {
     ...new Set(props.batteries.map((item) => item.sizeType)),
   ];
 
-  // Применение фильтров
   const applyFilters = () => {
     setSearchQuery(tempSearchQuery);
     setBrand(tempBrand);

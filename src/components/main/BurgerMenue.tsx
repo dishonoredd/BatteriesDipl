@@ -10,6 +10,7 @@ type Navigation = {
   id: number;
 };
 
+const homePath = pathRouter.HOME;
 const catalogPath = pathRouter.CATALOG_SELECTION;
 const cartPath = pathRouter.CART;
 const favPath = pathRouter.FAVORITES;
@@ -22,6 +23,7 @@ const navigationArr: Navigation[] = [
   { href: favPath, title: "Избранное", id: 3 },
   { href: loginPath, title: "Вход", id: 4 },
   { href: regPath, title: "Регестрация", id: 5 },
+  { href: homePath, title: "Главная страница", id: 6 },
 ];
 
 export default function BurgerMenue() {
