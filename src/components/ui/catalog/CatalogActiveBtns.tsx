@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppSelector } from "@/typescript/store";
+import { useAppSelector } from "@/typescript/redux/store";
 import CatalogProductBtn from "./CatalogProductBtn";
 import CatalogCounter from "./CatalogCounter";
 import { CartItem } from "@/types/CartItemType";

@@ -1,6 +1,6 @@
 "use client";
 
-import { changeOpen, useAppDispatch } from "@/typescript/store";
+import { changeOpen, useAppDispatch } from "@/typescript/redux/store";
 
 export default function HeaderBurgerBtn() {
   const dispatch = useAppDispatch();

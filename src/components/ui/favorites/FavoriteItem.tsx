@@ -5,20 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   addItemToCart,
+  loadCartFromStorage,
   removeFromFavorites,
   useAppDispatch,
   useAppSelector,
-} from "@/typescript/store";
+} from "@/typescript/redux/store";
 import { pathRouter } from "@/routes/router";
+import { useEffect } from "react";
 
 type FavItemP = {
   item: AccumType;
 };
 
 export default function FavoriteItem(props: FavItemP) {
-  const cartItems = useAppSelector((state) => state.cartSlice.cartArr);
-
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadCartFromStorage());
+  }, [dispatch]);
+
+  const cartItems = useAppSelector((state) => state.cartSlice.cartArr);
 
   const batteryPath = pathRouter.BATTERY;
 

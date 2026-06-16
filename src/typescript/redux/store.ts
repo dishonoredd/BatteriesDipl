@@ -1,7 +1,6 @@
 import { AccumType } from "@/types/AccumType";
 import { CartItem } from "@/types/CartItemType";
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 type RootState = ReturnType<typeof store.getState>;
@@ -21,6 +20,33 @@ type initialCartStateType = {
 
 type initialFavoriteStateType = {
   favorites: AccumType[];
+};
+
+const CART_STORAGE_KEY = "cartData";
+const FAVORITES_STORAGE_KEY = "favoritesData";
+
+const loadFromStorage = <T>(key: string, defaultValue: T): T => {
+  if (typeof window === "undefined") return defaultValue;
+
+  try {
+    const storedData = localStorage.getItem(key);
+    if (storedData) {
+      return JSON.parse(storedData);
+    }
+  } catch (error) {
+    console.error(`Error loading ${key} from localStorage:`, error);
+  }
+  return defaultValue;
+};
+
+const saveToStorage = <T>(key: string, data: T): void => {
+  if (typeof window === "undefined") return;
+
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (error) {
+    console.error(`Error saving ${key} to localStorage:`, error);
+  }
 };
 
 const initialBurgerState: initialBurgerStateType = {
@@ -59,8 +85,14 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
+    loadCartFromStorage: (state) => {
+      const data = loadFromStorage<CartItem[]>(CART_STORAGE_KEY, []);
+      state.cartArr = data;
+    },
+
     clearCart: (state) => {
       state.cartArr = [];
+      saveToStorage(CART_STORAGE_KEY, state.cartArr);
     },
 
     addItemToCart: (state, action: PayloadAction<CartItem>) => {
@@ -77,6 +109,8 @@ const cartSlice = createSlice({
       } else {
         state.cartArr.unshift({ ...action.payload, amount: 1 });
       }
+
+      saveToStorage(CART_STORAGE_KEY, state.cartArr);
     },
 
     deleteItemFromCart: (state, action: PayloadAction<string>) => {
@@ -91,11 +125,15 @@ const cartSlice = createSlice({
           );
         }
       }
+
+      saveToStorage(CART_STORAGE_KEY, state.cartArr);
     },
+
     deleteItemFromCartFinally: (state, action: PayloadAction<string>) => {
       state.cartArr = state.cartArr.filter(
         (item) => item.id !== action.payload,
       );
+      saveToStorage(CART_STORAGE_KEY, state.cartArr);
     },
   },
 });
@@ -104,6 +142,11 @@ const favoritesSlice = createSlice({
   name: "favorites",
   initialState: initialFavoriteState,
   reducers: {
+    loadFavoritesFromStorage: (state) => {
+      const data = loadFromStorage<AccumType[]>(FAVORITES_STORAGE_KEY, []);
+      state.favorites = data;
+    },
+
     toggleFavorite: (state, action: PayloadAction<AccumType>) => {
       const index = state.favorites.findIndex(
         (item) => item.id === action.payload.id,
@@ -113,11 +156,15 @@ const favoritesSlice = createSlice({
       } else {
         state.favorites.splice(index, 1);
       }
+
+      saveToStorage(FAVORITES_STORAGE_KEY, state.favorites);
     },
+
     removeFromFavorites: (state, action: PayloadAction<string>) => {
       state.favorites = state.favorites.filter(
         (item) => item.id !== action.payload,
       );
+      saveToStorage(FAVORITES_STORAGE_KEY, state.favorites);
     },
   },
 });
@@ -130,7 +177,8 @@ export const store = configureStore({
   },
 });
 
-export const { toggleFavorite, removeFromFavorites } = favoritesSlice.actions;
+export const { toggleFavorite, removeFromFavorites, loadFavoritesFromStorage } =
+  favoritesSlice.actions;
 export const { switchOpen, changeOpen, switchOpenAdmin, changeOpenAdmin } =
   burgerSlice.actions;
 export const {
@@ -138,6 +186,7 @@ export const {
   deleteItemFromCart,
   deleteItemFromCartFinally,
   clearCart,
+  loadCartFromStorage,
 } = cartSlice.actions;
 
 export const selectIsFavorite = (state: RootState, productId: string) =>

@@ -3,11 +3,13 @@
 import { AccumType } from "@/types/AccumType";
 import {
   deleteItemFromCartFinally,
+  loadFavoritesFromStorage,
   selectIsFavorite,
   toggleFavorite,
   useAppDispatch,
   useAppSelector,
-} from "@/typescript/store";
+} from "@/typescript/redux/store";
+import { useEffect } from "react";
 
 type CartBProps = {
   acc: AccumType;
@@ -15,6 +17,9 @@ type CartBProps = {
 
 export default function CartActiveBtns(props: CartBProps) {
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(loadFavoritesFromStorage());
+  }, [dispatch]);
 
   const pressed = useAppSelector((state) =>
     selectIsFavorite(state, props.acc.id),

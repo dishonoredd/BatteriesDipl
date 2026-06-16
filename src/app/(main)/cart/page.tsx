@@ -1,14 +1,25 @@
 "use client";
 
 import CartNoItems from "@/components/ui/cart/CartNoItems";
-import { clearCart, useAppDispatch, useAppSelector } from "@/typescript/store";
-import { useMemo } from "react";
+import {
+  clearCart,
+  useAppDispatch,
+  useAppSelector,
+  loadCartFromStorage, // Импортируем новый action
+} from "@/typescript/redux/store";
+import { useMemo, useEffect, useState } from "react";
 import CartArrItem from "@/components/ui/cart/CartArrItem";
+import SkeleetonEvery from "@/components/ui/adds/SkeletonEvery";
 
 export default function Cart() {
+  const [mounted, setMounted] = useState(false);
   const cartArr = useAppSelector((state) => state.cartSlice.cartArr);
-
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setMounted(true);
+    dispatch(loadCartFromStorage());
+  }, [dispatch]);
 
   function clearAllCart() {
     if (!cartArr.length) return;
@@ -26,6 +37,10 @@ export default function Cart() {
     }, 0);
   }, [cartArr]);
 
+  if (!mounted) {
+    return <SkeleetonEvery></SkeleetonEvery>;
+  }
+
   return (
     <div className="min-h-screen px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
       {cartArr.length ? (
@@ -36,7 +51,7 @@ export default function Cart() {
             </p>
 
             <button
-              className="w-full max-sm:text-white max-sm:bg-neutral-800 max-sm:hover:bg-neutral-900 max-sm:hover:text-white max-sm:decoration-0 sm:w-auto  text-blue-600 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl 
+              className="w-full max-sm:text-white max-sm:bg-neutral-800 max-sm:hover:bg-neutral-900 max-sm:hover:text-white max-sm:decoration-0 sm:w-auto text-blue-600 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl 
               text-sm sm:text-base font-medium flex items-center justify-center gap-2 group underline hover:text-blue-700 transition-all duration-200"
             >
               Перейти к оформлению

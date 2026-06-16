@@ -1,17 +1,29 @@
 "use client";
 
 import { AccumType } from "@/types/AccumType";
-import { useAppSelector } from "@/typescript/store";
+import {
+  useAppSelector,
+  useAppDispatch,
+  loadFavoritesFromStorage, // Импортируем новый action
+} from "@/typescript/redux/store";
 import FavoriteesNoItems from "@/components/ui/favorites/FavoritesNoItems";
 import { Select } from "antd";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { options, optionsArr } from "./constants";
 import FavoriteItem from "@/components/ui/favorites/FavoriteItem";
+import SkeleetonEvery from "@/components/ui/adds/SkeletonEvery";
 
 export default function Favorites() {
+  const [mounted, setMounted] = useState(false);
   const favorites = useAppSelector((state) => state.favoritesSlice.favorites);
+  const dispatch = useAppDispatch();
 
   const [sortOption, setSortOption] = useState<string>(options.new);
+
+  useEffect(() => {
+    setMounted(true);
+    dispatch(loadFavoritesFromStorage());
+  }, [dispatch]);
 
   function sortFavorites(accs: AccumType[], sortType: string) {
     const sortedItems = [...accs];
@@ -40,6 +52,10 @@ export default function Favorites() {
 
   function handleSortChange(value: string) {
     setSortOption(value);
+  }
+
+  if (!mounted) {
+    return <SkeleetonEvery></SkeleetonEvery>;
   }
 
   return (

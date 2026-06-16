@@ -5,7 +5,7 @@ import {
   switchOpenAdmin,
   useAppDispatch,
   useAppSelector,
-} from "@/typescript/store";
+} from "@/typescript/redux/store";
 import Link from "next/link";
 
 type Navigation = {

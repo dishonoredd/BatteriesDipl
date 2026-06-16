@@ -3,7 +3,7 @@ import {
   addItemToCart,
   deleteItemFromCart,
   useAppDispatch,
-} from "@/typescript/store";
+} from "@/typescript/redux/store";
 
 type CounterProps = {
   amount: number;

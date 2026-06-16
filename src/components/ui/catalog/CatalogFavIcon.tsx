@@ -6,7 +6,7 @@ import {
   toggleFavorite,
   useAppDispatch,
   useAppSelector,
-} from "@/typescript/store";
+} from "@/typescript/redux/store";
 
 type FavP = {
   acc: AccumType;

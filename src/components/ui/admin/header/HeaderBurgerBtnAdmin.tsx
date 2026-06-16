@@ -1,6 +1,6 @@
 "use client";
 
-import { changeOpenAdmin, useAppDispatch } from "@/typescript/store";
+import { changeOpenAdmin, useAppDispatch } from "@/typescript/redux/store";
 
 export default function HeaderBurgerBtnAdmin() {
   const dispatch = useAppDispatch();

@@ -7,7 +7,7 @@ import {
   toggleFavorite,
   useAppDispatch,
   useAppSelector,
-} from "@/typescript/store";
+} from "@/typescript/redux/store";
 
 type BatteryBtnsP = {
   battery: AccumType;

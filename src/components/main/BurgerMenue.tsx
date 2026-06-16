@@ -1,7 +1,11 @@
 "use client";
 
 import { pathRouter } from "@/routes/router";
-import { switchOpen, useAppDispatch, useAppSelector } from "@/typescript/store";
+import {
+  switchOpen,
+  useAppDispatch,
+  useAppSelector,
+} from "@/typescript/redux/store";
 import Link from "next/link";
 
 type Navigation = {

@@ -1,7 +1,7 @@
 "use client";
 
 import { CartItem } from "@/types/CartItemType";
-import { addItemToCart, useAppDispatch } from "@/typescript/store";
+import { addItemToCart, useAppDispatch } from "@/typescript/redux/store";
 
 type CatalogBtnProps = {
   acc: CartItem;
