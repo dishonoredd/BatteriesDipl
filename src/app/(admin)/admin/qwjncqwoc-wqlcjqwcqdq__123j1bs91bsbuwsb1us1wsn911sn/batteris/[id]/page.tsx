@@ -7,10 +7,7 @@ export default function AccumAdminOne() {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <p className="text-3xl text-gray-400">
-        {id} Страница с данными конкретного аккумулятора что бы изменять его
-        данные
-      </p>
+      <p className="text-3xl text-gray-400">ID = {id}</p>
     </div>
   );
 }
